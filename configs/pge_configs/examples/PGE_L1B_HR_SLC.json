@@ -1,0 +1,38 @@
+{
+  "runconfig": {
+    "configuration": {
+      "log": "file",
+      "log_level": "info",
+      "shortName": "L1B_HR_SLC_RCM",
+      "pgeShortName": "L1B_HR_SLC",
+      "ProductCounter": null,
+      "CRID": null,
+      "output_dir": "/data/work/output",
+      "working_dir": "/data/work",
+      "ProductionDateTime": null
+    },
+    "granule": {
+      "Cycle": null,
+      "Pass": null,
+      "Tile": null
+    },
+    "Input": {
+      "Pass Polygon": "/data/work/input/Pass_Polygon_01.txt",
+      "MOE": null,
+      "I_Q_GCRF_ITRF": null,
+      "CNESMC_JPLGDS_ATTD-RECONST": null,
+      "SAT_COMM": null,
+      "INT_KCAL_Dyn": null,
+      "Leap Seconds": null,
+      "StaticKaRInCal": null,
+      "RefDEM": null
+    }
+  },
+  "preconditions": [
+    "get_info2"
+  ],
+  "pge_name": "L1B_HR_SLC",
+  "output_file_extension": [".nc"],
+  "localize_groups": ["Input"]
+}
+

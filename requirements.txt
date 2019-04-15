@@ -1,0 +1,7 @@
+hysds_commons==0.1
+simplejson==3.12.0
+setuptools==38.2.5
+requests==2.18.4
+celery==4.2.0rc1
+elasticsearch==6.2.0
+yaml==5.1

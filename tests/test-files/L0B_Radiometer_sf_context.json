@@ -1,0 +1,2924 @@
+{
+"container_mappings": {
+"/home/ops/verdi/etc/datasets.json": "datasets.json",
+"/home/ops/verdi/ops/hysds/celeryconfig.py": "celeryconfig.py",
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"tag": "19496D",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.3.0.tar.gz",
+"half_orbit_id": "19496D",
+"_disk_usage": "40GB",
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.3.0",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/L0/L0A_Radiometer_NRT/2018/09/25/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/L0/L0A_Radiometer_NRT/2018/09/25/V20502AS21826816564400.VCD"
+]
+}
+,
+{
+"destination": "context",
+"name": "product_metadata",
+"value": [
+{
+"SeriesID": "001",
+"RangeEndingTime": "15:19:13.839Z",
+"ProductReceivedDay": "25",
+"Filename": "V20502AK51826815193900.VCD",
+"RangeEndingDateTime": "2018-09-25T15:19:13.839Z",
+"RangeBeginningDateTime": "2018-09-25T13:30:48.261Z",
+"ProductReceivedTime": "2018-09-25T15:38:12.029Z",
+"RangeBeginningET": "591154317.443816",
+"ProductReceivedYear": 2018,
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"RangeBeginningTime": "13:30:48.261Z",
+"ProcessingMode": "unknown",
+"RangeBeginningDate": "2018-09-25",
+"ProductReceivedMonth": "09",
+"RangeEndingET": "591160823.020929",
+"FileLocation": "/data/work/jobs/2018/09/25/15/37/job-smap_pge__release-0.2.1_L0A_Radiometer-20180925T153746.43773Z/datasets/V20502AK51826815193900.VCD",
+"ProductName": "V20502AK51826815193900.VCD",
+"GranuleName": "V20502AK51826815193900.VCD",
+"FileSize": 2665512960,
+"context": {
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+}
+,
+{
+"destination": "localize",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"6f104652bd60873b846b9d20aeb90514"
+,
+"f04a64102c3605dc3e5b1b423f263195"
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "L0A_Radiometer"
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-L0A_Radiometer_crawler:release-0.2.1"
+},
+"container_image_id": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'L0A_Radiometer'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-sciflo:release-0.2.1",
+"digest": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e"
+},
+"checksum": [
+"6f104652bd60873b846b9d20aeb90514"
+,
+"f04a64102c3605dc3e5b1b423f263195"
+],
+"tag": "ingest_L0A",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+],
+"purpose": "L0A_Radiometer",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.2.1",
+"_disk_usage": "40GB"
+},
+"job_specification": {
+"disk_usage": "60GB",
+"container": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"params": [
+{
+"destination": "context",
+"name": "runconfig",
+"value": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+}
+}
+,
+{
+"destination": "context",
+"name": "product_tag",
+"value": "sciflo_run"
+}
+,
+{
+"destination": "localize",
+"name": "localize_urls",
+"value": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+]
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"factotum-job_worker-large"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-smap_pge:release-0.2.1"
+},
+"container_image_id": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644",
+"_sciflo_wuid": "sciflowuid-45252315-09372234-1426252018-5df89ad91ff47f56e9b5670453c2980c",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"digest": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644"
+},
+"product_tag": "sciflo_run",
+"tag": "L0A_Radiometer",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+],
+"runconfig": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+},
+"_sciflo_job_num": 0,
+"_command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"job_priority": 5,
+"container_image_name": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"_disk_usage": "60GB"
+},
+"RangeEndingDate": "2018-09-25",
+"ShortName": "L0A_Radiometer_NRT"
+}
+,
+{
+"SeriesID": "001",
+"RangeEndingTime": "16:56:17.249Z",
+"ProductReceivedDay": "25",
+"Filename": "V20502AS21826816564400.VCD",
+"RangeEndingDateTime": "2018-09-25T16:56:17.249Z",
+"RangeBeginningDateTime": "2018-09-25T15:19:09.739Z",
+"ProductReceivedTime": "2018-09-25T17:18:06.120Z",
+"RangeBeginningET": "591160818.921229",
+"ProductReceivedYear": 2018,
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"RangeBeginningTime": "15:19:09.739Z",
+"ProcessingMode": "unknown",
+"RangeBeginningDate": "2018-09-25",
+"ProductReceivedMonth": "09",
+"RangeEndingET": "591166646.431799",
+"FileLocation": "/data/work/jobs/2018/09/25/17/17/job-smap_pge__release-0.2.1_L0A_Radiometer-20180925T171741.245329Z/datasets/V20502AS21826816564400.VCD",
+"ProductName": "V20502AS21826816564400.VCD",
+"GranuleName": "V20502AS21826816564400.VCD",
+"FileSize": 2388152520,
+"context": {
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+}
+,
+{
+"destination": "localize",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"303a5588514d0c99543ee0fc54ce7fdc"
+,
+"cf6e15b76cb7fc8291d15db58f26abee"
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "L0A_Radiometer"
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-L0A_Radiometer_crawler:release-0.2.1"
+},
+"container_image_id": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'L0A_Radiometer'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-sciflo:release-0.2.1",
+"digest": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e"
+},
+"checksum": [
+"303a5588514d0c99543ee0fc54ce7fdc"
+,
+"cf6e15b76cb7fc8291d15db58f26abee"
+],
+"tag": "ingest_L0A",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+],
+"purpose": "L0A_Radiometer",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.2.1",
+"_disk_usage": "40GB"
+},
+"job_specification": {
+"disk_usage": "60GB",
+"container": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"params": [
+{
+"destination": "context",
+"name": "runconfig",
+"value": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+}
+}
+,
+{
+"destination": "context",
+"name": "product_tag",
+"value": "sciflo_run"
+}
+,
+{
+"destination": "localize",
+"name": "localize_urls",
+"value": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+]
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"factotum-job_worker-large"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-smap_pge:release-0.2.1"
+},
+"container_image_id": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644",
+"_sciflo_wuid": "sciflowuid-41700317-09175259-1998252018-c52f9ce6ddbd96acb723210120d24020",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"digest": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644"
+},
+"product_tag": "sciflo_run",
+"tag": "L0A_Radiometer",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+],
+"runconfig": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+},
+"_sciflo_job_num": 0,
+"_command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"job_priority": 5,
+"container_image_name": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"_disk_usage": "60GB"
+},
+"RangeEndingDate": "2018-09-25",
+"ShortName": "L0A_Radiometer_NRT"
+}
+]
+}
+,
+{
+"destination": "context",
+"name": "half_orbit_id",
+"value": "19496D"
+}
+,
+{
+"destination": "context",
+"name": "half_orbit_status_doc_id",
+"value": "AWYRvYUqDfmXgkUuKF55"
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "Rest_of_NRT"
+}
+],
+"job-version": "release-0.3.0",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-Rest_of_NRT:release-0.3.0"
+},
+"container_image_id": "sha256:91c73603d016224b6189a6ca49aa3729f043993111e347502569c45246cae42f",
+"job_priority": 0,
+"purpose": "Rest_of_NRT",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'Rest_of_NRT'",
+"product_metadata": [
+{
+"SeriesID": "001",
+"RangeEndingTime": "15:19:13.839Z",
+"ProductReceivedDay": "25",
+"Filename": "V20502AK51826815193900.VCD",
+"RangeEndingDateTime": "2018-09-25T15:19:13.839Z",
+"RangeBeginningDateTime": "2018-09-25T13:30:48.261Z",
+"ProductReceivedTime": "2018-09-25T15:38:12.029Z",
+"RangeBeginningET": "591154317.443816",
+"ProductReceivedYear": 2018,
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"RangeBeginningTime": "13:30:48.261Z",
+"ProcessingMode": "unknown",
+"RangeBeginningDate": "2018-09-25",
+"ProductReceivedMonth": "09",
+"RangeEndingET": "591160823.020929",
+"FileLocation": "/data/work/jobs/2018/09/25/15/37/job-smap_pge__release-0.2.1_L0A_Radiometer-20180925T153746.43773Z/datasets/V20502AK51826815193900.VCD",
+"ProductName": "V20502AK51826815193900.VCD",
+"GranuleName": "V20502AK51826815193900.VCD",
+"FileSize": 2665512960,
+"context": {
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+}
+,
+{
+"destination": "localize",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"6f104652bd60873b846b9d20aeb90514"
+,
+"f04a64102c3605dc3e5b1b423f263195"
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "L0A_Radiometer"
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-L0A_Radiometer_crawler:release-0.2.1"
+},
+"container_image_id": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'L0A_Radiometer'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-sciflo:release-0.2.1",
+"digest": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e"
+},
+"checksum": [
+"6f104652bd60873b846b9d20aeb90514"
+,
+"f04a64102c3605dc3e5b1b423f263195"
+],
+"tag": "ingest_L0A",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+],
+"purpose": "L0A_Radiometer",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.2.1",
+"_disk_usage": "40GB"
+},
+"job_specification": {
+"disk_usage": "60GB",
+"container": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"params": [
+{
+"destination": "context",
+"name": "runconfig",
+"value": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+}
+}
+,
+{
+"destination": "context",
+"name": "product_tag",
+"value": "sciflo_run"
+}
+,
+{
+"destination": "localize",
+"name": "localize_urls",
+"value": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+]
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"factotum-job_worker-large"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-smap_pge:release-0.2.1"
+},
+"container_image_id": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644",
+"_sciflo_wuid": "sciflowuid-45252315-09372234-1426252018-5df89ad91ff47f56e9b5670453c2980c",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"digest": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644"
+},
+"product_tag": "sciflo_run",
+"tag": "L0A_Radiometer",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+],
+"runconfig": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+},
+"_sciflo_job_num": 0,
+"_command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"job_priority": 5,
+"container_image_name": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"_disk_usage": "60GB"
+},
+"RangeEndingDate": "2018-09-25",
+"ShortName": "L0A_Radiometer_NRT"
+}
+,
+{
+"SeriesID": "001",
+"RangeEndingTime": "16:56:17.249Z",
+"ProductReceivedDay": "25",
+"Filename": "V20502AS21826816564400.VCD",
+"RangeEndingDateTime": "2018-09-25T16:56:17.249Z",
+"RangeBeginningDateTime": "2018-09-25T15:19:09.739Z",
+"ProductReceivedTime": "2018-09-25T17:18:06.120Z",
+"RangeBeginningET": "591160818.921229",
+"ProductReceivedYear": 2018,
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"RangeBeginningTime": "15:19:09.739Z",
+"ProcessingMode": "unknown",
+"RangeBeginningDate": "2018-09-25",
+"ProductReceivedMonth": "09",
+"RangeEndingET": "591166646.431799",
+"FileLocation": "/data/work/jobs/2018/09/25/17/17/job-smap_pge__release-0.2.1_L0A_Radiometer-20180925T171741.245329Z/datasets/V20502AS21826816564400.VCD",
+"ProductName": "V20502AS21826816564400.VCD",
+"GranuleName": "V20502AS21826816564400.VCD",
+"FileSize": 2388152520,
+"context": {
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+}
+,
+{
+"destination": "localize",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"303a5588514d0c99543ee0fc54ce7fdc"
+,
+"cf6e15b76cb7fc8291d15db58f26abee"
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "L0A_Radiometer"
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-L0A_Radiometer_crawler:release-0.2.1"
+},
+"container_image_id": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'L0A_Radiometer'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-sciflo:release-0.2.1",
+"digest": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e"
+},
+"checksum": [
+"303a5588514d0c99543ee0fc54ce7fdc"
+,
+"cf6e15b76cb7fc8291d15db58f26abee"
+],
+"tag": "ingest_L0A",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+],
+"purpose": "L0A_Radiometer",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.2.1",
+"_disk_usage": "40GB"
+},
+"job_specification": {
+"disk_usage": "60GB",
+"container": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"params": [
+{
+"destination": "context",
+"name": "runconfig",
+"value": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+}
+}
+,
+{
+"destination": "context",
+"name": "product_tag",
+"value": "sciflo_run"
+}
+,
+{
+"destination": "localize",
+"name": "localize_urls",
+"value": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+]
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"factotum-job_worker-large"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-smap_pge:release-0.2.1"
+},
+"container_image_id": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644",
+"_sciflo_wuid": "sciflowuid-41700317-09175259-1998252018-c52f9ce6ddbd96acb723210120d24020",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"digest": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644"
+},
+"product_tag": "sciflo_run",
+"tag": "L0A_Radiometer",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+],
+"runconfig": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+},
+"_sciflo_job_num": 0,
+"_command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"job_priority": 5,
+"container_image_name": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"_disk_usage": "60GB"
+},
+"RangeEndingDate": "2018-09-25",
+"ShortName": "L0A_Radiometer_NRT"
+}
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.3.0",
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.3.0.tar.gz",
+"version": "release-0.3.0",
+"id": "container-sds-smap_smap-sciflo:release-0.3.0",
+"digest": "sha256:c5992c4ccb1ba25b8ae64a9e2aa47567cdc6ba81bf9de66a4e4c2855ae4b1ef2"
+},
+"localize_urls": [ ],
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.3.0",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/L0/L0A_Radiometer_NRT/2018/09/25/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/L0/L0A_Radiometer_NRT/2018/09/25/V20502AS21826816564400.VCD"
+]
+}
+,
+{
+"destination": "context",
+"name": "product_metadata",
+"value": [
+{
+"SeriesID": "001",
+"RangeEndingTime": "15:19:13.839Z",
+"ProductReceivedDay": "25",
+"Filename": "V20502AK51826815193900.VCD",
+"RangeEndingDateTime": "2018-09-25T15:19:13.839Z",
+"RangeBeginningDateTime": "2018-09-25T13:30:48.261Z",
+"ProductReceivedTime": "2018-09-25T15:38:12.029Z",
+"RangeBeginningET": "591154317.443816",
+"ProductReceivedYear": 2018,
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"RangeBeginningTime": "13:30:48.261Z",
+"ProcessingMode": "unknown",
+"RangeBeginningDate": "2018-09-25",
+"ProductReceivedMonth": "09",
+"RangeEndingET": "591160823.020929",
+"FileLocation": "/data/work/jobs/2018/09/25/15/37/job-smap_pge__release-0.2.1_L0A_Radiometer-20180925T153746.43773Z/datasets/V20502AK51826815193900.VCD",
+"ProductName": "V20502AK51826815193900.VCD",
+"GranuleName": "V20502AK51826815193900.VCD",
+"FileSize": 2665512960,
+"context": {
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+}
+,
+{
+"destination": "localize",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"6f104652bd60873b846b9d20aeb90514"
+,
+"f04a64102c3605dc3e5b1b423f263195"
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "L0A_Radiometer"
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-L0A_Radiometer_crawler:release-0.2.1"
+},
+"container_image_id": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'L0A_Radiometer'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-sciflo:release-0.2.1",
+"digest": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e"
+},
+"checksum": [
+"6f104652bd60873b846b9d20aeb90514"
+,
+"f04a64102c3605dc3e5b1b423f263195"
+],
+"tag": "ingest_L0A",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+],
+"purpose": "L0A_Radiometer",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.2.1",
+"_disk_usage": "40GB"
+},
+"job_specification": {
+"disk_usage": "60GB",
+"container": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"params": [
+{
+"destination": "context",
+"name": "runconfig",
+"value": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+}
+}
+,
+{
+"destination": "context",
+"name": "product_tag",
+"value": "sciflo_run"
+}
+,
+{
+"destination": "localize",
+"name": "localize_urls",
+"value": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+]
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"factotum-job_worker-large"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-smap_pge:release-0.2.1"
+},
+"container_image_id": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644",
+"_sciflo_wuid": "sciflowuid-45252315-09372234-1426252018-5df89ad91ff47f56e9b5670453c2980c",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"digest": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644"
+},
+"product_tag": "sciflo_run",
+"tag": "L0A_Radiometer",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+],
+"runconfig": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+},
+"_sciflo_job_num": 0,
+"_command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"job_priority": 5,
+"container_image_name": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"_disk_usage": "60GB"
+},
+"RangeEndingDate": "2018-09-25",
+"ShortName": "L0A_Radiometer_NRT"
+}
+,
+{
+"SeriesID": "001",
+"RangeEndingTime": "16:56:17.249Z",
+"ProductReceivedDay": "25",
+"Filename": "V20502AS21826816564400.VCD",
+"RangeEndingDateTime": "2018-09-25T16:56:17.249Z",
+"RangeBeginningDateTime": "2018-09-25T15:19:09.739Z",
+"ProductReceivedTime": "2018-09-25T17:18:06.120Z",
+"RangeBeginningET": "591160818.921229",
+"ProductReceivedYear": 2018,
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"RangeBeginningTime": "15:19:09.739Z",
+"ProcessingMode": "unknown",
+"RangeBeginningDate": "2018-09-25",
+"ProductReceivedMonth": "09",
+"RangeEndingET": "591166646.431799",
+"FileLocation": "/data/work/jobs/2018/09/25/17/17/job-smap_pge__release-0.2.1_L0A_Radiometer-20180925T171741.245329Z/datasets/V20502AS21826816564400.VCD",
+"ProductName": "V20502AS21826816564400.VCD",
+"GranuleName": "V20502AS21826816564400.VCD",
+"FileSize": 2388152520,
+"context": {
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+}
+,
+{
+"destination": "localize",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"303a5588514d0c99543ee0fc54ce7fdc"
+,
+"cf6e15b76cb7fc8291d15db58f26abee"
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "L0A_Radiometer"
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-L0A_Radiometer_crawler:release-0.2.1"
+},
+"container_image_id": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'L0A_Radiometer'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-sciflo:release-0.2.1",
+"digest": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e"
+},
+"checksum": [
+"303a5588514d0c99543ee0fc54ce7fdc"
+,
+"cf6e15b76cb7fc8291d15db58f26abee"
+],
+"tag": "ingest_L0A",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+],
+"purpose": "L0A_Radiometer",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.2.1",
+"_disk_usage": "40GB"
+},
+"job_specification": {
+"disk_usage": "60GB",
+"container": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"params": [
+{
+"destination": "context",
+"name": "runconfig",
+"value": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+}
+}
+,
+{
+"destination": "context",
+"name": "product_tag",
+"value": "sciflo_run"
+}
+,
+{
+"destination": "localize",
+"name": "localize_urls",
+"value": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+]
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"factotum-job_worker-large"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-smap_pge:release-0.2.1"
+},
+"container_image_id": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644",
+"_sciflo_wuid": "sciflowuid-41700317-09175259-1998252018-c52f9ce6ddbd96acb723210120d24020",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"digest": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644"
+},
+"product_tag": "sciflo_run",
+"tag": "L0A_Radiometer",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+],
+"runconfig": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+},
+"_sciflo_job_num": 0,
+"_command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"job_priority": 5,
+"container_image_name": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"_disk_usage": "60GB"
+},
+"RangeEndingDate": "2018-09-25",
+"ShortName": "L0A_Radiometer_NRT"
+}
+]
+}
+,
+{
+"destination": "context",
+"name": "half_orbit_id",
+"value": "19496D"
+}
+,
+{
+"destination": "context",
+"name": "half_orbit_status_doc_id",
+"value": "AWYRvYUqDfmXgkUuKF55"
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "Rest_of_NRT"
+}
+],
+"job-version": "release-0.3.0",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-Rest_of_NRT:release-0.3.0"
+},
+"container_image_id": "sha256:c5992c4ccb1ba25b8ae64a9e2aa47567cdc6ba81bf9de66a4e4c2855ae4b1ef2",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'Rest_of_NRT'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.3.0.tar.gz",
+"version": "release-0.3.0",
+"id": "container-sds-smap_smap-sciflo:release-0.3.0",
+"digest": "sha256:c5992c4ccb1ba25b8ae64a9e2aa47567cdc6ba81bf9de66a4e4c2855ae4b1ef2"
+},
+"half_orbit_status_doc_id": "AWYRvYUqDfmXgkUuKF55",
+"tag": "19496D",
+"localize_urls": [ ],
+"purpose": "Rest_of_NRT",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.3.0.tar.gz",
+"product_metadata": [
+{
+"SeriesID": "001",
+"RangeEndingTime": "15:19:13.839Z",
+"ProductReceivedDay": "25",
+"Filename": "V20502AK51826815193900.VCD",
+"RangeEndingDateTime": "2018-09-25T15:19:13.839Z",
+"RangeBeginningDateTime": "2018-09-25T13:30:48.261Z",
+"ProductReceivedTime": "2018-09-25T15:38:12.029Z",
+"RangeBeginningET": "591154317.443816",
+"ProductReceivedYear": 2018,
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"RangeBeginningTime": "13:30:48.261Z",
+"ProcessingMode": "unknown",
+"RangeBeginningDate": "2018-09-25",
+"ProductReceivedMonth": "09",
+"RangeEndingET": "591160823.020929",
+"FileLocation": "/data/work/jobs/2018/09/25/15/37/job-smap_pge__release-0.2.1_L0A_Radiometer-20180925T153746.43773Z/datasets/V20502AK51826815193900.VCD",
+"ProductName": "V20502AK51826815193900.VCD",
+"GranuleName": "V20502AK51826815193900.VCD",
+"FileSize": 2665512960,
+"context": {
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+}
+,
+{
+"destination": "localize",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"6f104652bd60873b846b9d20aeb90514"
+,
+"f04a64102c3605dc3e5b1b423f263195"
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "L0A_Radiometer"
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-L0A_Radiometer_crawler:release-0.2.1"
+},
+"container_image_id": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'L0A_Radiometer'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-sciflo:release-0.2.1",
+"digest": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e"
+},
+"checksum": [
+"6f104652bd60873b846b9d20aeb90514"
+,
+"f04a64102c3605dc3e5b1b423f263195"
+],
+"tag": "ingest_L0A",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+],
+"purpose": "L0A_Radiometer",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.2.1",
+"_disk_usage": "40GB"
+},
+"job_specification": {
+"disk_usage": "60GB",
+"container": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"params": [
+{
+"destination": "context",
+"name": "runconfig",
+"value": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+}
+}
+,
+{
+"destination": "context",
+"name": "product_tag",
+"value": "sciflo_run"
+}
+,
+{
+"destination": "localize",
+"name": "localize_urls",
+"value": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+]
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"factotum-job_worker-large"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-smap_pge:release-0.2.1"
+},
+"container_image_id": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644",
+"_sciflo_wuid": "sciflowuid-45252315-09372234-1426252018-5df89ad91ff47f56e9b5670453c2980c",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"digest": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644"
+},
+"product_tag": "sciflo_run",
+"tag": "L0A_Radiometer",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+}
+],
+"runconfig": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T15:37:45.825Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AK51826815193900.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+},
+"_sciflo_job_num": 0,
+"_command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"job_priority": 5,
+"container_image_name": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"_disk_usage": "60GB"
+},
+"RangeEndingDate": "2018-09-25",
+"ShortName": "L0A_Radiometer_NRT"
+}
+,
+{
+"SeriesID": "001",
+"RangeEndingTime": "16:56:17.249Z",
+"ProductReceivedDay": "25",
+"Filename": "V20502AS21826816564400.VCD",
+"RangeEndingDateTime": "2018-09-25T16:56:17.249Z",
+"RangeBeginningDateTime": "2018-09-25T15:19:09.739Z",
+"ProductReceivedTime": "2018-09-25T17:18:06.120Z",
+"RangeBeginningET": "591160818.921229",
+"ProductReceivedYear": 2018,
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"RangeBeginningTime": "15:19:09.739Z",
+"ProcessingMode": "unknown",
+"RangeBeginningDate": "2018-09-25",
+"ProductReceivedMonth": "09",
+"RangeEndingET": "591166646.431799",
+"FileLocation": "/data/work/jobs/2018/09/25/17/17/job-smap_pge__release-0.2.1_L0A_Radiometer-20180925T171741.245329Z/datasets/V20502AS21826816564400.VCD",
+"ProductName": "V20502AS21826816564400.VCD",
+"GranuleName": "V20502AS21826816564400.VCD",
+"FileSize": 2388152520,
+"context": {
+"context": {
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+}
+,
+{
+"destination": "localize",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"303a5588514d0c99543ee0fc54ce7fdc"
+,
+"cf6e15b76cb7fc8291d15db58f26abee"
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "L0A_Radiometer"
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"smap-sciflo_worker-large"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-L0A_Radiometer_crawler:release-0.2.1"
+},
+"container_image_id": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e",
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'L0A_Radiometer'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-sciflo:release-0.2.1",
+"digest": "sha256:83b6e409682362a93740b8c5f0009295a70ea08f65bd8e2eb37a7031f22dc15e"
+},
+"checksum": [
+"303a5588514d0c99543ee0fc54ce7fdc"
+,
+"cf6e15b76cb7fc8291d15db58f26abee"
+],
+"tag": "ingest_L0A",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+],
+"purpose": "L0A_Radiometer",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.2.1.tar.gz",
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.2.1",
+"_disk_usage": "40GB"
+},
+"job_specification": {
+"disk_usage": "60GB",
+"container": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"params": [
+{
+"destination": "context",
+"name": "runconfig",
+"value": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+}
+}
+,
+{
+"destination": "context",
+"name": "product_tag",
+"value": "sciflo_run"
+}
+,
+{
+"destination": "localize",
+"name": "localize_urls",
+"value": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+]
+}
+],
+"job-version": "release-0.2.1",
+"recommended-queues": [
+"factotum-job_worker-large"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-smap_pge:release-0.2.1"
+},
+"container_image_id": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644",
+"_sciflo_wuid": "sciflowuid-41700317-09175259-1998252018-c52f9ce6ddbd96acb723210120d24020",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"version": "release-0.2.1",
+"id": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"digest": "sha256:2b765081dc2f15da6a71e9e4e720a12c530ee1e36198837a3f8d1e12211a7644"
+},
+"product_tag": "sciflo_run",
+"tag": "L0A_Radiometer",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+}
+],
+"runconfig": {
+"SeriesID": "001",
+"StaticAncillaryFileGroup": {
+"SpiceProjectFrames": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf",
+"OutputConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+"SpiceSCLK": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc",
+"SpiceLeapSecond": "s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls",
+"MetConfig": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+"Parameter": "/home/ops/install/level1Radiometer/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+},
+"JobIdentification": {
+"ProductionDateTime": "2018-09-25T17:17:41.040Z",
+"ProductionLocationCode": "NRT",
+"ProductionLocation": "SMAP HySDS NRT"
+},
+"InputFileGroup": {
+"InputFilePath": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+]
+},
+"DebugGroup": {
+"CaptureLogMessagesSwitch": "On",
+"DebugPath": "/home/ops/output",
+"EchoToScreenSwitch": "Off",
+"DebugSwitch": "Off"
+},
+"DebugLevelGroup": {
+"TEST": "MEDIUM",
+"L0A_FUNC": "MEDIUM"
+},
+"localize": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceSCLK/smap_cl_v00092.tsc/smap_cl_v00092.tsc"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceLeapSecond/naif0012.tls/naif0012.tls"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/SpiceProjectFrames/smap_pf_v14.tf/smap_pf_v14.tf"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/V20502AS21826816564400.VCD.XFR"
+],
+"ProductPathGroup": {
+"ShortName": "L0A_Radiometer_NRT",
+"ProductPath": "/home/ops/output",
+"ProductCounter": "001"
+},
+"SPSNameGroup": {
+"SPSName": "L0A_RADIOMETER_SPS"
+},
+"PrimaryExecutable": {
+"SWVersionID": "004",
+"FullPathname": "/home/ops/install/level1Radiometer/bin/L0A_RADIOMETER_SPS",
+"CompositeReleaseID": "N15180",
+"ISOScriptPath": "/home/ops/install/level1Radiometer",
+"Version": "0.1.0",
+"AlgorithmVersionID": "004",
+"ParameterVersionID": "003"
+}
+},
+"_sciflo_job_num": 0,
+"_command": "/home/ops/SPDM-with-HySDS/run_pge.sh",
+"job_priority": 5,
+"container_image_name": "container-sds-smap_smap-pcm-layer:release-0.2.1",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-pcm-layer:release-0.2.1.tar.gz",
+"_disk_usage": "60GB"
+},
+"RangeEndingDate": "2018-09-25",
+"ShortName": "L0A_Radiometer_NRT"
+}
+],
+"job_priority": 5,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/L0/L0A_Radiometer_NRT/2018/09/25/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/L0/L0A_Radiometer_NRT/2018/09/25/V20502AS21826816564400.VCD"
+],
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.3.0",
+"half_orbit_id": "19496D",
+"_disk_usage": "40GB"
+},
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/L0/L0A_Radiometer_NRT/2018/09/25/V20502AK51826815193900.VCD"
+,
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/L0/L0A_Radiometer_NRT/2018/09/25/V20502AS21826816564400.VCD"
+],
+"half_orbit_status_doc_id": "AWYRvYUqDfmXgkUuKF55"
+}

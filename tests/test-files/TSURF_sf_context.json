@@ -1,0 +1,279 @@
+{
+"_command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh 'TSURF_PP'",
+"container_mappings": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"tag": "test_tsurf",
+"purpose": "TSURF_PP",
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.3.0.tar.gz",
+"product_metadata":
+[
+{
+"metadata": {
+"ProductReceivedTime": "2018-09-28T03:02:14.919Z",
+"ProductReceivedYear": 2018,
+"FileLocation": "/data/work/jobs/2018/09/28/03/02/job-ingest_ancillary_file__release-0.3.0-20180928T030204.675334Z/output/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4",
+"ProductReceivedDay": "28",
+"AnalysisLevel": "a",
+"Filename": "GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4",
+"VersionID": "01",
+"FileSize": 2732173,
+"context": {
+"job_specification": {
+"disk_usage": "20GB",
+"container": "container-sds-smap_ingest_ancillary:release-0.3.0",
+"resource": "jobspec",
+"command": "/home/ops/verdi/ops/ingest_ancillary/ingest_ancillary_file.py",
+"params": [
+{
+"destination": "localize",
+"name": "file",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"2cae0ea11ca00587406a6d1152b3f5c8"
+,
+"a7b261e258ababb606d12f95fe11f911"
+]
+}
+,
+{
+"destination": "context",
+"name": "file_modification_time",
+"value": "2018-09-28 02:57:07Z"
+}
+,
+{
+"destination": "context",
+"name": "submission_time",
+"value": "2018-09-28 03:02:03Z"
+}
+],
+"job-version": "release-0.3.0",
+"recommended-queues": [
+"factotum-job_worker-large"
+,
+"factotum-job_worker-small"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-ingest_ancillary_file:release-0.3.0"
+},
+"container_image_id": "sha256:7f577c63dafaf5259f200d3d99e9afd04068bfbaf50ab07e527ffd0a12d7633d",
+"_command": "/home/ops/verdi/ops/ingest_ancillary/ingest_ancillary_file.py",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_ingest_ancillary:release-0.3.0.tar.gz",
+"version": "release-0.3.0",
+"id": "container-sds-smap_ingest_ancillary:release-0.3.0",
+"digest": "sha256:7f577c63dafaf5259f200d3d99e9afd04068bfbaf50ab07e527ffd0a12d7633d"
+},
+"checksum": [
+"2cae0ea11ca00587406a6d1152b3f5c8"
+,
+"a7b261e258ababb606d12f95fe11f911"
+],
+"tag": "ingest_ancillary",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4.XFR"
+}
+],
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_ingest_ancillary:release-0.3.0.tar.gz",
+"submission_time": "2018-09-28 03:02:03Z",
+"job_priority": 6,
+"container_image_name": "container-sds-smap_ingest_ancillary:release-0.3.0",
+"file_modification_time": "2018-09-28 02:57:07Z",
+"_disk_usage": "20GB"
+},
+"SourceInstitute": "GEOS",
+"ProductName": "GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4",
+"ProductReceivedMonth": "09",
+"AnalysisDateTime": "2018-09-27T19:00:00.000Z"
+}
+}
+]
+,
+"container_image_name": "container-sds-smap_smap-sciflo:release-0.3.0",
+"_disk_usage": "40GB",
+"job_specification": {
+"disk_usage": "40GB",
+"container": "container-sds-smap_smap-sciflo:release-0.3.0",
+"resource": "jobspec",
+"command": "/home/ops/SPDM-with-HySDS/smap_sciflo/run_sciflo.sh",
+"params": [
+{
+"destination": "context",
+"name": "product_paths",
+"value": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/GEOS_TAVG3_ASM/2018/09/27/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4"
+]
+}
+,
+{
+"destination": "context",
+"name": "product_metadata",
+"value": [
+[
+{
+"metadata": {
+"ProductReceivedTime": "2018-09-28T03:02:14.919Z",
+"ProductReceivedYear": 2018,
+"FileLocation": "/data/work/jobs/2018/09/28/03/02/job-ingest_ancillary_file__release-0.3.0-20180928T030204.675334Z/output/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4",
+"ProductReceivedDay": "28",
+"AnalysisLevel": "a",
+"Filename": "GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4",
+"VersionID": "01",
+"FileSize": 2732173,
+"context": {
+"job_specification": {
+"disk_usage": "20GB",
+"container": "container-sds-smap_ingest_ancillary:release-0.3.0",
+"resource": "jobspec",
+"command": "/home/ops/verdi/ops/ingest_ancillary/ingest_ancillary_file.py",
+"params": [
+{
+"destination": "localize",
+"name": "file",
+"value": [
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4"
+,
+"s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4.XFR"
+]
+}
+,
+{
+"destination": "context",
+"name": "checksum",
+"value": [
+"2cae0ea11ca00587406a6d1152b3f5c8"
+,
+"a7b261e258ababb606d12f95fe11f911"
+]
+}
+,
+{
+"destination": "context",
+"name": "file_modification_time",
+"value": "2018-09-28 02:57:07Z"
+}
+,
+{
+"destination": "context",
+"name": "submission_time",
+"value": "2018-09-28 03:02:03Z"
+}
+],
+"job-version": "release-0.3.0",
+"recommended-queues": [
+"factotum-job_worker-large"
+,
+"factotum-job_worker-small"
+],
+"imported_worker_files": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-ingest_ancillary_file:release-0.3.0"
+},
+"container_image_id": "sha256:7f577c63dafaf5259f200d3d99e9afd04068bfbaf50ab07e527ffd0a12d7633d",
+"_command": "/home/ops/verdi/ops/ingest_ancillary/ingest_ancillary_file.py",
+"container_mappings": {
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_ingest_ancillary:release-0.3.0.tar.gz",
+"version": "release-0.3.0",
+"id": "container-sds-smap_ingest_ancillary:release-0.3.0",
+"digest": "sha256:7f577c63dafaf5259f200d3d99e9afd04068bfbaf50ab07e527ffd0a12d7633d"
+},
+"checksum": [
+"2cae0ea11ca00587406a6d1152b3f5c8"
+,
+"a7b261e258ababb606d12f95fe11f911"
+],
+"tag": "ingest_ancillary",
+"localize_urls": [
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4"
+}
+,
+{
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-dataset-bucket-test/ancillary/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4.XFR"
+}
+],
+"container_image_url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_ingest_ancillary:release-0.3.0.tar.gz",
+"submission_time": "2018-09-28 03:02:03Z",
+"job_priority": 6,
+"container_image_name": "container-sds-smap_ingest_ancillary:release-0.3.0",
+"file_modification_time": "2018-09-28 02:57:07Z",
+"_disk_usage": "20GB"
+},
+"SourceInstitute": "GEOS",
+"ProductName": "GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4",
+"ProductReceivedMonth": "09",
+"AnalysisDateTime": "2018-09-27T19:00:00.000Z"
+}
+}
+]
+]
+}
+,
+{
+"destination": "positional",
+"name": "purpose",
+"value": "TSURF_PP"
+}
+],
+"job-version": "release-0.3.0",
+"recommended-queues": [
+"factotum-job_worker-small"
+],
+"imported_worker_files": {
+"/tmp": [
+"/tmp"
+,
+"rw"
+],
+"$HOME/.netrc": "/home/ops/.netrc",
+"$HOME/.aws": "/home/ops/.aws"
+},
+"id": "job-TSURF_PP:release-0.3.0"
+},
+"container_image_id": "sha256:91c73603d016224b6189a6ca49aa3729f043993111e347502569c45246cae42f",
+"container_specification": {
+"url": "s3://s3-us-west-2.amazonaws.com/dev-smap-code-bucket-test/container-sds-smap_smap-sciflo:release-0.3.0.tar.gz",
+"version": "release-0.3.0",
+"id": "container-sds-smap_smap-sciflo:release-0.3.0",
+"digest": "sha256:c672a4d21bf1766b71f413df5f249b5031a780a59f73d8e7970caeddc6b80461"
+},
+"localize_urls": [ ],
+"job_priority": 7,
+"product_paths": [
+"s3://s3-us-west-2.amazonaws.com:80/dev-smap-dataset-bucket-test/LOM/ANCILLARY/GEOS_TAVG3_ASM/2018/09/27/GEOS.fp.asm.inst1_2d_smp_Nx.20180927_1900.V01.nc4"
+]
+}
