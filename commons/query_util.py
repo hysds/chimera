@@ -4,11 +4,10 @@ import traceback
 import datetime
 import logging
 from commons import product_metadata
-# from hysds.celery import app
+from hysds.celery import app
 
 
-# ES_URL = app.conf.get("GRQ_ES_URL", "http://localhost:9200")
-ES_URL = "http://localhost:9200"
+ES_URL = app.conf.get("GRQ_ES_URL", "http://localhost:9200")
 ES = elasticsearch.Elasticsearch(ES_URL)
 GRQ_INDEX = "grq"
 PRODUCT_COUNTER_INDEX = "product_counter"
