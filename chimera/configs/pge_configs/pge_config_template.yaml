@@ -1,0 +1,27 @@
+---
+# This config file is used by all three steps of Chimera: Input Preprocessor, PGE Execution and Post Processor
+
+runconfig:
+  #Specify the JSON equivalent of the Run Config XML. For values that need to be filled in on precondition evaluation, specify null.
+  # Here is the template. Please look at PGE_LOA_Radiometer.json and PGE as a JSON example
+  RunConfigXMLGroup:
+     XMLElementWithFixedValue: "On"
+     XMLElementWithFixedPath: "/home/ops/output"
+     XMLElementToBeDetermined: null
+  RunConfigXMLGroupToDownload:
+     XMLElementWithFile1: "S3 URL of file"
+     XMLElementWithFile2: "URL of file"
+
+localize_groups:
+# This is a list of the groups in the run config that contain input files that would need to be downloaded into the work directory e.g ancillary files and input products
+  - RunConfigXMLGroupToDownload
+preconditions: # provide the ordered list of precondition functions to be used for this PGE.
+  - function_name_in_IPP # IPP means input_preprocessor.py
+  - function_with_specs # This function  will run with specifications provided further in the PGE config
+
+function_with_specs: # provide the specifications as required by function
+    key: value # value can be a list or dict or string based on function's requirements
+pge_name: Standard_Name_of_PGE
+output_file_extension: # In the sciflo workflow document, you want a downstream PGE to use a certain output products of this PGE as inputs then, list the file extensions of those output products. The Post Processor uses this key to construct a metadata context file for the downstream PGE.
+  - .fileExtension1
+  - .fileExtension2

@@ -1,0 +1,58 @@
+{
+  "runconfig": {
+    "DebugGroup": {
+      "CaptureLogMessagesSwitch": "On",
+      "DebugPath": "/home/ops/output",
+      "EchoToScreenSwitch": "Off",
+      "DebugSwitch": "Off"
+    },
+    "StaticAncillaryFileGroup": {
+      "SpiceSCLK": null,
+      "SpiceLeapSecond": null,
+      "SpiceProjectFrames": null,
+      "MetConfig": "/home/ops/install/config/SMAP_L0A_RADIOMETER_SPS_MetConfig_L0A_Radiometer.xml",
+      "OutputConfig": "/home/ops/install/config/SMAP_L0A_RADIOMETER_SPS_OutputConfig_L0A_Radiometer.xml",
+      "Parameter": "/home/ops/install/config/SMAP_L0A_RADIOMETER_SPS_Parameter.xml"
+    },
+    "DebugLevelGroup": {
+      "TEST": "MEDIUM",
+      "L0A_FUNC": "MEDIUM"
+    },
+    "InputFileGroup": {
+      "InputFilePath": null
+    },
+    "ProductPathGroup": {
+      "ShortName": "L0A_Radiometer_NRT",
+      "ProductPath": "/home/ops/output",
+      "ProductCounter": "001"
+    },
+    "SPSNameGroup": {
+      "SPSName": "L0A_RADIOMETER_SPS"
+    },
+    "PrimaryExecutable": {
+      "SWVersionID": null,
+      "Version": "0.1.0",
+      "AlgorithmVersionID": null,
+      "ParameterVersionID": null,
+      "FullPathname": "/home/ops/install/bin/L0A_RADIOMETER_SPS",
+      "CompositeReleaseID": null,
+      "ISOScriptPath": "/home/ops/install"
+    },
+    "JobIdentification": {
+      "ProductionLocationCode": "NRT",
+      "ProductionLocation": "SMAP HySDS NRT",
+      "ProductionDateTime": null
+    },
+    "SeriesID": null
+  },
+  "preconditions": [
+    "getPrimaryExecutableMetadata", "getProducts", "getSpiceFiles"
+  ],
+  "getSpiceFiles": {
+    "spiceProductTypes": ["SpiceSCLK", "SpiceProjectFrames", "SpiceLeapSecond"]
+  },
+  "pge_name": "L0A_Radiometer",
+  "output_file_extension": [".VCD"],
+  "localize_groups": ["StaticAncillaryFileGroup", "InputFileGroup"]
+}
+

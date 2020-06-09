@@ -1,0 +1,13 @@
+# module_path is a path to where the given class can be found
+
+# This tells Chimera how to load in the precondition functions class in order to do the input preprocessor step.
+# class_name must be a subclass of Chimera's PreConditionFunctions class.
+preprocessor:
+  module_path: chimera.precondition_functions
+  class_name: PreConditionFunctions
+
+# This tells Chimera how to load in the job submitter class in order to do the PGE job submission step.
+# class_name must be a subclass of Chimera's PgeJobSubmitter class.
+job_submitter:
+  module_path: chimera.pge_job_submitter
+  class_name: PgeJobSubmitter
