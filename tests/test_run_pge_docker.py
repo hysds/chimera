@@ -1,6 +1,6 @@
 import json
 import os
-from smap_sciflo import run_pge_docker
+from swot_chimera import run_pge_docker
 
 if __name__ == '__main__':
     """
@@ -32,11 +32,16 @@ if __name__ == '__main__':
 
     # Testing L0B PGE job submission
     os.path.dirname(os.path.realpath(__file__))
-    sf_context = os.path.dirname(os.path.realpath(__file__))+"/test-files/sf_context.json"
-    runconfig = json.loads(open(os.path.dirname(os.path.realpath(__file__))+"/test-files/runconfig.json","r").read())
-    pge_config_file = os.path.abspath(os.path.join(os.path.realpath(__file__),"../..","configs/examples/PGE_L0A_RADIOMETER.json"))
+    sf_context = os.path.dirname(os.path.realpath(
+        __file__))+"/test-files/L1B_HR_SLC-sfcontext.json"
+    runconfig = json.loads(open(os.path.dirname(os.path.realpath(__file__))+"/test-files/L1B_HR_SLC-runconfig.json", "r")
+                           .read())
+    pge_config_file = os.path.abspath(os.path.join(os.path.realpath(__file__), "../../",
+                                                   "swot_chimera/configs/pge_configs/examples/PGE_L1B_HR_SLC.json"))
     sys_config_file = os.path.abspath(
-        os.path.join(os.path.realpath(__file__), "../..", "configs/sys.config.json"))
-    job_json = os.path.dirname(os.path.realpath(__file__))+"/test-files/job.json"
+        os.path.join(os.path.realpath(__file__), "../..", "swot_chimera/configs/sys.config.json"))
+    job_json = os.path.dirname(os.path.realpath(
+        __file__))+"/test-files/L0B_job.json"
 
-    print json.dumps(run_pge_docker.submit_pge_job(sf_context, runconfig, pge_config_file, sys_config_file, sf_job_json=job_json, wuid="1213", job_num="231232", test_mode=True))
+    run_pge_docker.submit_pge_job(sf_context, runconfig, pge_config_file, sys_config_file,
+                                  wuid="1213", job_num="231232")

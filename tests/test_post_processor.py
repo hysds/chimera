@@ -30,9 +30,13 @@ if __name__ == '__main__':
 
     # Testing L0B post processing
     os.path.dirname(os.path.realpath(__file__))
-    job_result = json.loads(open(os.path.dirname(os.path.realpath(__file__))+"/test-files/sample_job_submission_result.json").read())
-    sf_context = os.path.dirname(os.path.realpath(__file__))+"/test-files/sf_context.json"
+    job_result = json.loads(open(os.path.dirname(os.path.realpath(
+        __file__))+"/test-files/sample_job_submission_result.json").read())
+    sf_context = os.path.dirname(os.path.realpath(
+        __file__))+"/test-files/sf_context.json"
     pge_type = "L0A_Radiometer"
     level_up_dir = os.path.dirname(os.path.realpath(__file__))
-    pge_config_file = os.path.abspath(os.path.join(os.path.realpath(__file__),"../..","configs/examples/PGE_L0A_RADIOMETER.json"))
-    post_processor.create_context(sf_context, job_result, pge_type, pge_config_file, test_mode = True)
+    pge_config_file = os.path.abspath(os.path.join(os.path.realpath(
+        __file__), "../..", "configs/examples/PGE_L0A_RADIOMETER.json"))
+    post_processor.create_context(
+        sf_context, job_result, pge_type, pge_config_file, test_mode=True)

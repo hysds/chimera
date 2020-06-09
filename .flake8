@@ -1,0 +1,12 @@
+[flake8] 
+format = pylint
+max-line-length = 120
+ignore =
+    # E501: line too long
+    E501,
+    # W503: line break before binary operator
+    W503,
+    # E722: do not use bare 'except'
+    E722
+statistics = 1
+tee = 1
