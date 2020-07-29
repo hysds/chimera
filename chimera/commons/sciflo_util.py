@@ -13,6 +13,8 @@ WORK_RE = re.compile(r'\d{5}-.+')
 def copy_sciflo_work(output_dir):
     """Move over smap_sciflo work dirs."""
 
+    # Instead of creating symlinks like it was initially doing, this has been updated
+    # to copy the sciflo workunit directories to its human readable sciflo step.
     for root, dirs, files in os.walk(output_dir):
         for d in dirs:
             if not WORK_RE.search(d):
@@ -20,11 +22,10 @@ def copy_sciflo_work(output_dir):
             path = os.path.join(root, d)
             if os.path.islink(path) and os.path.exists(path):
                 real_path = os.path.realpath(path)
-                base_name = os.path.basename(real_path)
+                os.unlink(path)
+                base_name = os.path.basename(path)
                 new_path = os.path.join(root, base_name)
                 shutil.copytree(real_path, new_path)
-                os.unlink(path)
-                os.symlink(base_name, path)
     return
 
 
