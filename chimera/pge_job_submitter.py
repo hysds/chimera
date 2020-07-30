@@ -31,14 +31,18 @@ class PgeJobSubmitter(object):
         self._pge_config = load_config(pge_config_file)
         logger.debug("Loaded PGE config file: {}".format(json.dumps(self._pge_config)))
 
+        self._wuid = wuid
+        self._job_num = job_num
+
         # load Settings file
         try:
             if settings_file:
                 settings_file = os.path.abspath(os.path.normpath(settings_file))
                 self._settings = YamlConf(settings_file).cfg
-                self._chimera_config = self._settings.get("CHIMERA")
-                if not self._chimera_config:
-                    raise RuntimeError("Must specify a CHIMERA area in {}".format(settings_file))
+                self._chimera_config = self._settings.get("CHIMERA", None)
+                if self._wuid and self._job_num:
+                    if not self._chimera_config:
+                        raise RuntimeError("Must specify a CHIMERA area in {}".format(settings_file))
         except Exception as e:
             if settings_file:
                 file_name = settings_file
@@ -47,8 +51,6 @@ class PgeJobSubmitter(object):
             raise RuntimeError("Could not read settings file '{}': {}".format(file_name, e))
 
         self._run_config = run_config
-        self._wuid = wuid
-        self._job_num = job_num
 
     def get_input_file_name(self, input_file_key=None):
         """
