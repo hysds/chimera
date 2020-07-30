@@ -93,14 +93,6 @@ class PgeJobSubmitter(object):
 
         :return:
         """
-        # get HySDS job type and queue information
-        job_name = self._chimera_config.get(chimera_const.JOB_TYPES).get(self._pge_config.get(chimera_const.PGE_NAME))
-        if chimera_const.RELEASE_VERSION in self._context:
-            release_version = self._context[chimera_const.RELEASE_VERSION]
-        else:
-            release_version = self._context.get('container_specification').get('version')
-        job_type = job_name + ":" + release_version
-
         try:
             localize_urls = self.get_localize_urls(self._run_config.get(chimera_const.LOCALIZE))
         except Exception:
@@ -115,8 +107,7 @@ class PgeJobSubmitter(object):
             "simulate_outputs": self._run_config[chimera_const.SIMULATE_OUTPUTS]
         }
 
-        localize_hash = self.get_payload_hash(job_type)
-        return job_params, localize_hash
+        return job_params
 
     def get_payload_hash(self, job_type):
         """
@@ -193,6 +184,8 @@ class PgeJobSubmitter(object):
                 release_version = self._context.get('container_specification').get('version')
 
             job_type = job_name + ":" + release_version
+
+            localize_hash = self.get_payload_hash(job_type)
 
             # Find what the primary input is to the job
             # input_file_key = self._pge_config.get(chimera_const.PRIMARY_INPUT, None)
