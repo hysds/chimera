@@ -167,7 +167,7 @@ class PgeJobSubmitter(object):
         if not isinstance(self._run_config, dict):
             raise RuntimeError("The output from input preprocessor is not a dictionary")
 
-        params, localize_hash = self.construct_params()
+        params = self.construct_params()
 
         # If wuid and job_num are not null, it is implied that we need to do job submission. In that case, we need to
         # construct the job payload.
