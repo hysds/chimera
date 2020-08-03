@@ -40,7 +40,7 @@ class PgeJobSubmitter(object):
                 settings_file = os.path.abspath(os.path.normpath(settings_file))
                 self._settings = YamlConf(settings_file).cfg
                 self._chimera_config = self._settings.get("CHIMERA", None)
-                if self._wuid and self._job_num:
+                if self._wuid and self._job_num is not None:
                     if not self._chimera_config:
                         raise RuntimeError("Must specify a CHIMERA area in {}".format(settings_file))
         except Exception as e:
@@ -171,7 +171,7 @@ class PgeJobSubmitter(object):
 
         # If wuid and job_num are not null, it is implied that we need to do job submission. In that case, we need to
         # construct the job payload.
-        if self._wuid and self._job_num:
+        if self._wuid and self._job_num is not None:
             # get HySDS job type and queue information
             job_name = self._chimera_config.get(chimera_const.JOB_TYPES).get(
                 self._pge_config.get(chimera_const.PGE_NAME))
