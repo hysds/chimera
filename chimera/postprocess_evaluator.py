@@ -95,8 +95,8 @@ class PostProcessor(object):
         :return:
         """
         # getting the job paylooad and status
-        job_id = str(self.job_result["payload_id"])
-        job_status = str(self.job_result["status"])
+        job_id = str(self._job_result["payload_id"])
+        job_status = str(self._job_result["status"])
 
         logger.info("Recieved JOB ID: {} with status: {}".format(
             job_id, job_status))
@@ -251,7 +251,7 @@ class PostProcessor(object):
         This function gets the staged products and context of previous PGE job
         :return: tuple(products_staged, prev_context, message)
         """
-        job_id = str(self.job_result["payload_id"])
+        job_id = str(self._job_result["payload_id"])
         endpoint = MOZART_ES_ENDPOINT
         return_job_id = None
 
