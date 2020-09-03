@@ -107,11 +107,11 @@ class PostProcessor(object):
         )
         # write out job context
         psu_context = open(
-            "{}_context.json".format(self._pge_config.get("pge_name"), "w")
+            "{}_context.json".format(self._pge_config.get("pge_name")), "w"
         )
         psu_context.write(json.dumps(psuedo_context))
         psu_context.close()
-        return "{}_context.json".format(self._pge_config.get("pge_name"), "w")
+        return "{}_context.json".format(self._pge_config.get("pge_name"))
 
     def query_es(
         self,
