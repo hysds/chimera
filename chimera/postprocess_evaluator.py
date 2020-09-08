@@ -324,7 +324,7 @@ class PostProcessor(object):
             # new_context.update(self.required_post_process_steps())
             # run custom post processing steps and update the psuedo context content
             cls_object = cls(
-                self._sf_context, self._pge_config, self._settings, new_context
+                self._sf_context, self._pge_config, self._settings, self._job_result
             )
             new_context.update(
                 cls_object.run(
