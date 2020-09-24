@@ -1,9 +1,12 @@
+from commons.accountability import Accountability
+
 class PostProcessFunctions(object):
     def __init__(self, context, pge_config, settings, psuedo_context):
         self._context = context
         self._pge_config = pge_config
         self._settings = settings
         self._psuedo_context = psuedo_context
+        self.accountability = Accountability(self._context)
 
     def run(self, function_list):
         """
@@ -16,7 +19,8 @@ class PostProcessFunctions(object):
         output_context = dict()
         for func in function_list:
             self._psuedo_context.update(getattr(self, func)())
-
+        
+        self.accountability.set_status("job-completed")
         return self._psuedo_context
 
     def _check_job_status(self):

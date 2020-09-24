@@ -3,6 +3,9 @@ import os
 import json
 import re
 import shutil
+from importlib import import_module
+
+x
 
 WORK_RE = re.compile(r'\d{5}-.+')
 
@@ -29,11 +32,37 @@ def copy_sciflo_work(output_dir):
     return
 
 
+def _get_accountability_class(context):
+    path = context.get("module_path")
+    accountability_class_name = context.get("accountability_class", None)
+    accountability_module = import_module(path)
+    if accountability_class_name is None:
+        logger.error(
+            "No accountability class specified"
+        )
+        return None
+    cls = getattr(accountability_module, accountability_class_name)
+    if not issubclass(cls, Accountability):
+        logger.error(
+            "accountability class does not extend Accountability"
+        )
+        return None
+    cls_object = cls(context)
+    return cls_object
+
+
 def extract_error(sfl_json):
     """Extract SciFlo error and traceback for mozart."""
 
     with open(sfl_json) as f:
         j = json.load(f)
+    context_file = j.get("args").get("sf_context")
+    context = None
+    with open(context_file, "r") as f:
+        context = json.load(f)
+    accountability = _get_accountability_class(context)
+    if accountability is None:
+        accountability = Accountability(context)
     exc_message = j.get('exceptionMessage', None)
     if exc_message is not None:
         try:
@@ -56,19 +85,21 @@ def extract_error(sfl_json):
                         err_str = 'SciFlo step %s with job_id %s (task %s) failed: %s' % \
                                   (proc, job_json['job_id'],
                                    job_json['uuid'], err)
+                        accountability.set_status("job-failed")
                         with open('_alt_error.txt', 'w') as f:
                             f.write("%s\n" % err_str)
                         with open('_alt_traceback.txt', 'w') as f:
                             f.write("%s\n" % job_json['traceback'])
             else:
                 err_str = 'SciFlo step %s failed: %s' % (proc, exc)
+                accountability.set_status("job-failed")
                 with open('_alt_error.txt', 'w') as f:
                     f.write("%s\n" % err_str)
                 with open('_alt_traceback.txt', 'w') as f:
                     f.write("%s\n" % tb)
 
 
-def run_sciflo(sfl_file, sfl_args, output_dir):
+def run_sciflo(sfl_file, sfl_args, output_dir, accountability=None):
     """Run sciflo."""
 
     # build paths to executables
@@ -83,7 +114,7 @@ def run_sciflo(sfl_file, sfl_args, output_dir):
     sf_key, context_file = sfl_args[0].split("=")
     print("Exit status is: %d" % status)
     if status != 0:
-        extract_error('%s/sciflo.json' % output_dir)
+        extract_error('%s/sciflo.json' % output_dir, accountability)
         status = 1
 
     # copy smap_sciflo work and exec dir
