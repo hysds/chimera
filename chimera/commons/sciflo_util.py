@@ -5,7 +5,7 @@ import re
 import shutil
 from importlib import import_module
 
-from accountability import Accountability
+from chimera.commons.accountability import Accountability
 
 WORK_RE = re.compile(r'\d{5}-.+')
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from constants import ChimeraConstants as chimera_const
+from chimera.commons.constants import ChimeraConstants as chimera_const
 
 
 class Accountability(object):
