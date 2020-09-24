@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from constants import ChimeraConstants as chimera_const
 
 
