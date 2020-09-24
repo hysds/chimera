@@ -1,4 +1,4 @@
-from commons.accountability import Accountability
+from chimera.commons.accountability import Accountability
 
 class PreConditionFunctions(object):
     def __init__(self, context, pge_config, settings, job_params):

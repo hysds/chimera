@@ -7,7 +7,7 @@ of performing the hash calculation to determine dedup.
 import json
 import os
 
-from commons.accountability import Accountability
+from chimera.commons.accountability import Accountability
 from chimera.commons.constants import ChimeraConstants as chimera_const
 from chimera.commons.conf_util import load_config, YamlConf
 from chimera.logger import logger
