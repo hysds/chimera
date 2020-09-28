@@ -34,6 +34,8 @@ def copy_sciflo_work(output_dir):
 
 def _get_accountability_class(context):
     path = context.get("module_path")
+    if "accountability_module_path" in context:
+        path = context.get("accountability_module_path") 
     accountability_class_name = context.get("accountability_class", None)
     accountability_module = import_module(path)
     if accountability_class_name is None:
