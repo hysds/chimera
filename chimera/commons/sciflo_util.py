@@ -99,7 +99,7 @@ def extract_error(sfl_json):
                     f.write("%s\n" % tb)
 
 
-def run_sciflo(sfl_file, sfl_args, output_dir, accountability=None):
+def run_sciflo(sfl_file, sfl_args, output_dir):
     """Run sciflo."""
 
     # build paths to executables
@@ -114,7 +114,7 @@ def run_sciflo(sfl_file, sfl_args, output_dir, accountability=None):
     sf_key, context_file = sfl_args[0].split("=")
     print("Exit status is: %d" % status)
     if status != 0:
-        extract_error('%s/sciflo.json' % output_dir, accountability)
+        extract_error('%s/sciflo.json' % output_dir)
         status = 1
 
     # copy smap_sciflo work and exec dir
