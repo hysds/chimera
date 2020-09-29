@@ -39,15 +39,9 @@ def _get_accountability_class(context):
     accountability_class_name = context.get("accountability_class", None)
     accountability_module = import_module(path)
     if accountability_class_name is None:
-        logger.error(
-            "No accountability class specified"
-        )
         return None
     cls = getattr(accountability_module, accountability_class_name)
     if not issubclass(cls, Accountability):
-        logger.error(
-            "accountability class does not extend Accountability"
-        )
         return None
     cls_object = cls(context)
     return cls_object
