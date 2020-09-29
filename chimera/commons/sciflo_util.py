@@ -3,9 +3,6 @@ import os
 import json
 import re
 import shutil
-from importlib import import_module
-
-from chimera.commons.accountability import Accountability
 
 WORK_RE = re.compile(r'\d{5}-.+')
 
@@ -31,31 +28,11 @@ def copy_sciflo_work(output_dir):
                 shutil.copytree(real_path, new_path)
     return
 
-
-def _get_accountability_class(context):
-    path = context.get("module_path")
-    if "accountability_module_path" in context:
-        path = context.get("accountability_module_path") 
-    accountability_class_name = context.get("accountability_class", None)
-    accountability_module = import_module(path)
-    if accountability_class_name is None:
-        return None
-    cls = getattr(accountability_module, accountability_class_name)
-    if not issubclass(cls, Accountability):
-        return None
-    cls_object = cls(context)
-    return cls_object
-
-
 def extract_error(sfl_json):
     """Extract SciFlo error and traceback for mozart."""
 
     with open(sfl_json) as f:
         j = json.load(f)
-    context_file = j.get("args").get("sf_context")
-    context = None
-    with open(context_file, "r") as f:
-        context = json.load(f)
     exc_message = j.get('exceptionMessage', None)
     if exc_message is not None:
         try:
@@ -69,9 +46,7 @@ def extract_error(sfl_json):
             accountability = None
             try:
                 exc = eval(exc)
-                accountability = _get_accountability_class(context)
             except Exception:
-                accountability = Accountability(context)
                 pass
             if isinstance(exc, tuple) and len(exc) == 2:
                 err = exc[0]
@@ -81,14 +56,12 @@ def extract_error(sfl_json):
                         err_str = 'SciFlo step %s with job_id %s (task %s) failed: %s' % \
                                   (proc, job_json['job_id'],
                                    job_json['uuid'], err)
-                        accountability.set_status("job-failed")
                         with open('_alt_error.txt', 'w') as f:
                             f.write("%s\n" % err_str)
                         with open('_alt_traceback.txt', 'w') as f:
                             f.write("%s\n" % job_json['traceback'])
             else:
                 err_str = 'SciFlo step %s failed: %s' % (proc, exc)
-                accountability.set_status("job-failed")
                 with open('_alt_error.txt', 'w') as f:
                     f.write("%s\n" % err_str)
                 with open('_alt_traceback.txt', 'w') as f:
