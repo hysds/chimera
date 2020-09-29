@@ -62,9 +62,6 @@ def extract_error(sfl_json):
     context = None
     with open(context_file, "r") as f:
         context = json.load(f)
-    accountability = _get_accountability_class(context)
-    if accountability is None:
-        accountability = Accountability(context)
     exc_message = j.get('exceptionMessage', None)
     if exc_message is not None:
         try:
@@ -75,9 +72,12 @@ def extract_error(sfl_json):
             proc = exc_list[0]
             exc = exc_list[1]
             tb = exc_list[2]
+            accountability = None
             try:
                 exc = eval(exc)
+                accountability = _get_accountability_class(context)
             except Exception:
+                accountability = Accountability(context)
                 pass
             if isinstance(exc, tuple) and len(exc) == 2:
                 err = exc[0]
