@@ -7,6 +7,7 @@ of performing the hash calculation to determine dedup.
 import json
 import os
 
+from chimera.commons.accountability import Accountability
 from chimera.commons.constants import ChimeraConstants as chimera_const
 from chimera.commons.conf_util import load_config, YamlConf
 from chimera.logger import logger
@@ -21,6 +22,7 @@ class PgeJobSubmitter(object):
             self._context = context
         elif isinstance(context, str):
             self._context = json.load(open(context, 'r'))
+        self.accountability = Accountability(self._context)
         logger.debug("Loaded context file: {}".format(json.dumps(self._context)))
 
         # This is intended to represent the top level working directory of the job. It's assumed to be at the same
@@ -214,7 +216,7 @@ class PgeJobSubmitter(object):
             # information, if specified
             if "job_specification" in self._context:
                 job_json["job_specification"] = self._context["job_specification"]
-
+        self.accountability.set_status("job-started")
         job_json = self.perform_adaptation_tasks(job_json)
 
         return job_json
