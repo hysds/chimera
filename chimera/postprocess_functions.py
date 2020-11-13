@@ -17,6 +17,9 @@ class PostProcessFunctions(object):
         :return: a dictionary containing information about the results of the post PGE processes.
         """
         output_context = dict()
+        logger.info(
+            "function_list: {}".format(function_list)
+        )
         for func in function_list:
             self._psuedo_context.update(getattr(self, func)())
         
