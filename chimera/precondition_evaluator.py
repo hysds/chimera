@@ -1,5 +1,6 @@
 import json
 import os
+import copy
 import traceback
 
 from importlib import import_module
@@ -12,7 +13,7 @@ from chimera.precondition_functions import PreConditionFunctions
 from urllib.parse import urlparse
 
 # Used to identify fields to be filled within the runconfig context.json of PGE
-EMPTY_FIELD_IDENTIFIER = None
+EMPTY_FIELD_IDENTIFIER = "__CHIMERA_VAL__"
 
 
 class PreConditionEvaluator(object):
@@ -54,6 +55,33 @@ class PreConditionEvaluator(object):
             else:
                 file_name = '~/verdi/etc/settings.yaml'
             raise RuntimeError("Could not read settings file '{}': {}".format(file_name, e))
+
+    def repl_val_in_dict(self, d, val, job_params, root=None):
+        """
+        Recursive function to replace occurences of val in a dict with values from the job_params.
+        """
+
+        if root is None: root = []
+        matched_keys = []
+        for k, v in d.items():
+            rt = copy.copy(root)
+            rt.append(k)
+            if isinstance(v, dict):
+                matched_keys.extend(self.repl_val_in_dict(v, val, job_params, rt))
+            if v == val:
+                jp_key = '.'.join(rt)
+                # use job_params with explicit dot notation
+                if jp_key in job_params:
+                    d[k] = job_params[jp_key]
+                    matched_keys.append(jp_key)
+                # maintain backwards-compatibility of using job_param values without dot notation
+                elif k in job_params:
+                    d[k] = job_params[k]
+                    matched_keys.append(k)
+                else:
+                    logger.error("job_params: {}".format(json.dumps(job_params, indent=2, sort_keys=True)))
+                    raise(ValueError("{} has not been evaluated by the preprocessor.".format(jp_key)))
+        return matched_keys
 
     def localize_paths(self, output_context):
         """
@@ -99,52 +127,11 @@ class PreConditionEvaluator(object):
         """
         logger.debug("Preparing runconfig for {}".format(self._pge_config.get('pge_name')))
         output_context = dict()
-        optional_fields = self._pge_config.get(ChimeraConstants.OPTIONAL_FIELDS, [])
+        #TODO: how to incorporate optional_fields in recursive function
+        #optional_fields = self._pge_config.get(ChimeraConstants.OPTIONAL_FIELDS, [])
         if self._pge_config.get(ChimeraConstants.RUNCONFIG):
-            for group in self._pge_config.get(ChimeraConstants.RUNCONFIG):
-                if isinstance(self._pge_config.get(ChimeraConstants.RUNCONFIG).get(group), str):
-                    output_context[group] = self._pge_config.get(ChimeraConstants.RUNCONFIG).get(group)
-                    continue
-                elif self._pge_config.get(ChimeraConstants.RUNCONFIG).get(group) == EMPTY_FIELD_IDENTIFIER:
-                    value = job_params.get(group)
-                    if value == EMPTY_FIELD_IDENTIFIER:
-                        raise ValueError("{} has not been evaluated by the preprocessor.".format(group))
-                    else:
-                        output_context[group] = value
-                    continue
-                output_context[group] = dict()  # Create group
-                # Populate group
-                for item in self._pge_config.get(ChimeraConstants.RUNCONFIG).get(group):
-                    item_value = self._pge_config.get(ChimeraConstants.RUNCONFIG).get(group).get(item)
-                    if item_value == EMPTY_FIELD_IDENTIFIER:
-                        logger.debug("In Runconfig, evaluating {}: {}".format(item, item_value))
-                        # Search job params for the item
-                        if job_params.get(item) is not None:
-                            item_value = job_params.get(item)
-                            output_context[group][item] = item_value
-                        else:
-                            found_field = False
-                            if len(optional_fields) != 0:
-                                for opt_field_group in optional_fields:
-                                    if item in opt_field_group:
-                                        found_field = True
-                                        print(found_field)
-                                        # check to make sure that atleast one of the fields is in the job_params
-                                        value_count = 0
-                                        for field in opt_field_group:
-                                            if job_params.get(field) is not None:
-                                                value_count += 1
-                                        if value_count == 0:
-                                            raise ValueError(
-                                                "{} value has not been evaluated by the preprocessor".format(item))
-                                if not found_field:
-                                    raise ValueError(
-                                        "{} value has not been evaluated by the preprocessor".format(item))
-                            else:
-                                raise ValueError(
-                                    "{} value has not been evaluated by the preprocessor".format(item))
-                    else:
-                        output_context[group][item] = item_value
+            output_context = copy.deepcopy(self._pge_config.get(ChimeraConstants.RUNCONFIG))
+            matched_keys = self.repl_val_in_dict(output_context, EMPTY_FIELD_IDENTIFIER, job_params)
         else:
             raise KeyError("Key runconfig not found in PGE config file")
 
