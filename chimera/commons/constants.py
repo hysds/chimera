@@ -47,6 +47,9 @@ class ChimeraConstants(object):
     # primary input key in PGE config
     PRIMARY_INPUT = "primary_input"
 
+    # identifier token to specify empty runconfig values to be filled
+    EMPTY_FIELD_IDENTIFIER = "empty_field_identifier"
+
     # field to specify optionals runconfig fields
     OPTIONAL_FIELDS = "optionalFields"
 

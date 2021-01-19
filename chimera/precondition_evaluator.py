@@ -126,12 +126,15 @@ class PreConditionEvaluator(object):
         :return: dict
         """
         logger.debug("Preparing runconfig for {}".format(self._pge_config.get('pge_name')))
+        empty_field_identifier = self._pge_config.get(ChimeraConstants.EMPTY_FIELD_IDENTIFIER,
+                                                      EMPTY_FIELD_IDENTIFIER)
+        logger.debug("Empty field identifier: {}".format(empty_field_identifier))
         output_context = dict()
         #TODO: how to incorporate optional_fields in recursive function
         #optional_fields = self._pge_config.get(ChimeraConstants.OPTIONAL_FIELDS, [])
         if self._pge_config.get(ChimeraConstants.RUNCONFIG):
             output_context = copy.deepcopy(self._pge_config.get(ChimeraConstants.RUNCONFIG))
-            matched_keys = self.repl_val_in_dict(output_context, EMPTY_FIELD_IDENTIFIER, job_params)
+            matched_keys = self.repl_val_in_dict(output_context, empty_field_identifier, job_params)
         else:
             raise KeyError("Key runconfig not found in PGE config file")
 
