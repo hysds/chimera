@@ -56,18 +56,19 @@ class PreConditionEvaluator(object):
                 file_name = '~/verdi/etc/settings.yaml'
             raise RuntimeError("Could not read settings file '{}': {}".format(file_name, e))
 
-    def repl_val_in_dict(self, d, val, job_params, root=None):
+    def repl_val_in_dict(self, d, val, job_params, root=None, optional_fields=None):
         """
         Recursive function to replace occurences of val in a dict with values from the job_params.
         """
 
         if root is None: root = []
+        if optional_fields is None: optional_fields = []
         matched_keys = []
         for k, v in d.items():
             rt = copy.copy(root)
             rt.append(k)
             if isinstance(v, dict):
-                matched_keys.extend(self.repl_val_in_dict(v, val, job_params, rt))
+                matched_keys.extend(self.repl_val_in_dict(v, val, job_params, rt, optional_fields))
             if v == val:
                 jp_key = '.'.join(rt)
                 # use job_params with explicit dot notation
@@ -79,8 +80,18 @@ class PreConditionEvaluator(object):
                     d[k] = job_params[k]
                     matched_keys.append(k)
                 else:
-                    logger.error("job_params: {}".format(json.dumps(job_params, indent=2, sort_keys=True)))
-                    raise(ValueError("{} has not been evaluated by the preprocessor.".format(jp_key)))
+                    # check if optionalField; if so, set value to empty string
+                    if jp_key in optional_fields:
+                        logger.info("Explicit dot notation key {} is an optional field.".format(jp_key))
+                        logger.info("Setting {} to value to empty string.".format(k))
+                        d[k] = ""
+                    elif k in optional_fields:
+                        logger.info("Key {} is an optional field.".format(k))
+                        logger.info("Setting {} to value to empty string.".format(k))
+                        d[k] = ""
+                    else:
+                        logger.error("job_params: {}".format(json.dumps(job_params, indent=2, sort_keys=True)))
+                        raise(ValueError("{} or {} has not been evaluated by the preprocessor.".format(jp_key, k)))
         return matched_keys
 
     def localize_paths(self, output_context):
@@ -130,11 +141,11 @@ class PreConditionEvaluator(object):
                                                       EMPTY_FIELD_IDENTIFIER)
         logger.debug("Empty field identifier: {}".format(empty_field_identifier))
         output_context = dict()
-        #TODO: how to incorporate optional_fields in recursive function
-        #optional_fields = self._pge_config.get(ChimeraConstants.OPTIONAL_FIELDS, [])
+        optional_fields = self._pge_config.get(ChimeraConstants.OPTIONAL_FIELDS, [])
         if self._pge_config.get(ChimeraConstants.RUNCONFIG):
             output_context = copy.deepcopy(self._pge_config.get(ChimeraConstants.RUNCONFIG))
-            matched_keys = self.repl_val_in_dict(output_context, empty_field_identifier, job_params)
+            matched_keys = self.repl_val_in_dict(output_context, empty_field_identifier,
+                                                 job_params, optional_fields=optional_fields)
         else:
             raise KeyError("Key runconfig not found in PGE config file")
 
