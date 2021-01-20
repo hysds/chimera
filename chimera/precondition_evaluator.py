@@ -87,7 +87,7 @@ class PreConditionEvaluator(object):
                         d[k] = ""
                     elif k in optional_fields:
                         logger.info("Key {} is an optional field.".format(k))
-                        logger.info("Setting {} to value to empty string.".format(k))
+                        logger.info("Setting {} value to empty string.".format(k))
                         d[k] = ""
                     else:
                         logger.error("job_params: {}".format(json.dumps(job_params, indent=2, sort_keys=True)))
