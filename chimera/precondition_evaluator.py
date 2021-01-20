@@ -83,7 +83,7 @@ class PreConditionEvaluator(object):
                     # check if optionalField; if so, set value to empty string
                     if jp_key in optional_fields:
                         logger.info("Explicit dot notation key {} is an optional field.".format(jp_key))
-                        logger.info("Setting {} to value to empty string.".format(k))
+                        logger.info("Setting {} value to empty string.".format(k))
                         d[k] = ""
                     elif k in optional_fields:
                         logger.info("Key {} is an optional field.".format(k))
