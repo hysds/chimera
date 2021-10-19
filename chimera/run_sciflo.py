@@ -10,7 +10,7 @@ from importlib import import_module
 
 from chimera.logger import logger
 from chimera.commons.accountability import Accountability
-from chimera.commons.sciflo_util import run_sciflo
+from chimera.commons.sciflo_util import run_sciflo, get_job_json
 
 # Set up logging
 LOGGER = logger
@@ -21,6 +21,9 @@ BASE_PATH = os.path.dirname(__file__)
 
 # grabs accountability class if implemented and set in the sciflo jobspecs
 def get_accountability_class(context):
+    job_json = None
+    if isinstance(context, str):
+        job_json = get_job_json(context)
     path = context.get("module_path")
     if "accountability_module_path" in context:
         path = context.get("accountability_module_path")
@@ -30,31 +33,31 @@ def get_accountability_class(context):
         LOGGER.error(
             "No accountability class specified"
         )
-        return Accountability(context)
+        return Accountability(context, job_json=job_json)
     cls = getattr(accountability_module, accountability_class_name)
     if not issubclass(cls, Accountability):
         LOGGER.error(
             "accountability class does not extend Accountability"
         )
-        return Accountability(context)
-    cls_object = cls(context)
+        return Accountability(context, job_json=job_json)
+    cls_object = cls(context, job_json=job_json)
     return cls_object
 
 
 # sets the accountability status as failed or doesn't do anything at all
-def set_status_failed(context_file):
-    context = {}
-    with open(context_file, "r") as f:
-        import json
-        context = json.load(f)
-    try:
-        #from nisar_chimera.commons.accountability import NisarAccountability
-        accountability = get_accountability_class(context)
-        accountability.set_status("job-failed")
-    except Exception as e:
-        LOGGER.info("could not get accountability object")
-        LOGGER.info("path: {}".format(sys.path))
-        LOGGER.error(e)
+# def set_status_failed(context_file):
+#     context = {}
+#     with open(context_file, "r") as f:
+#         import json
+#         context = json.load(f)
+#     try:
+#         #from nisar_chimera.commons.accountability import NisarAccountability
+#         accountability = get_accountability_class(context)
+#         accountability.set_status("job-failed")
+#     except Exception as e:
+#         LOGGER.info("could not get accountability object")
+#         LOGGER.info("path: {}".format(sys.path))
+#         LOGGER.error(e)
 
 
 def main(sfl_file, context_file, output_folder):
@@ -65,10 +68,12 @@ def main(sfl_file, context_file, output_folder):
     output_file = os.path.abspath(output_folder)
     LOGGER.info("sfl_file: %s" % sfl_file)
     LOGGER.info("context_file: %s" % context_file)
+    accountability = get_accountability_class(context_file)
+    accountability.create_entry()
     result = run_sciflo(sfl_file, ["sf_context=%s" % context_file], output_folder)
-    if result != 0:
-        # sets status as failed if accountability implemented in chimera, otherwise, does nothing
-        set_status_failed(context_file)
+    # if result != 0:
+    #     # sets status as failed if accountability implemented in chimera, otherwise, does nothing
+    #     set_status_failed(context_file)
     return result
 
 

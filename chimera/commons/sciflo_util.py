@@ -28,6 +28,13 @@ def copy_sciflo_work(output_dir):
                 shutil.copytree(real_path, new_path)
     return
 
+
+def get_job_json(context_filepath):
+    job_file ="{}/_job.json".format("/".join(context_filepath.split("/")[0:-1]))
+    with open(job_file, "r") as f:
+        return json.load(f)
+
+
 def extract_error(sfl_json):
     """Extract SciFlo error and traceback for mozart."""
 
