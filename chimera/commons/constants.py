@@ -84,9 +84,3 @@ class ChimeraConstants(object):
     JOB_TYPES = "JOB_TYPES"
 
     JOB_QUEUES = "JOB_QUEUES"
-
-    INPUT_DATASET_TYPE = "dataset_type"
-
-    INPUT_DATASET_ID = "input_dataset_id"
-
-    STEP = "purpose"
