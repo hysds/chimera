@@ -17,3 +17,6 @@ class Accountability(object):
 
     def create_job_entry(self):
         pass
+
+    def set_products(self, job_results):
+        pass
