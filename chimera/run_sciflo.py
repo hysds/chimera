@@ -5,12 +5,13 @@ Run the NRT production pipeline
 
 import argparse
 import os
+import json
 import sys
 from importlib import import_module
 
 from chimera.logger import logger
 from chimera.commons.accountability import Accountability
-from chimera.commons.sciflo_util import run_sciflo, get_job_json
+from chimera.commons.sciflo_util import run_sciflo
 
 # Set up logging
 LOGGER = logger
@@ -20,10 +21,13 @@ BASE_PATH = os.path.dirname(__file__)
 
 
 # grabs accountability class if implemented and set in the sciflo jobspecs
-def get_accountability_class(context):
-    job_json = None
-    if isinstance(context, str):
-        job_json = get_job_json(context)
+def get_accountability_class(context_file):
+    work_dir = None
+    context = None
+    if isinstance(context_file, str):
+        work_dir = os.path.dirname(context_file)
+        with open(context_file, "r") as f:
+            context = json.load(context_file)
     path = context.get("module_path")
     if "accountability_module_path" in context:
         path = context.get("accountability_module_path")
@@ -33,14 +37,14 @@ def get_accountability_class(context):
         LOGGER.error(
             "No accountability class specified"
         )
-        return Accountability(context, job_json=job_json)
+        return Accountability(context, work_dir)
     cls = getattr(accountability_module, accountability_class_name)
     if not issubclass(cls, Accountability):
         LOGGER.error(
             "accountability class does not extend Accountability"
         )
-        return Accountability(context, job_json=job_json)
-    cls_object = cls(context, job_json=job_json)
+        return Accountability(context, work_dir)
+    cls_object = cls(context, work_dir)
     return cls_object
 
 

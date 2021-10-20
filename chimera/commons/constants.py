@@ -79,8 +79,6 @@ class ChimeraConstants(object):
 
     PAYLOAD_TASK_ID = "payload_task_id"
 
-    JOB_DIR = "job_dir"
-
     JOB_ID_FIELD = "job_id"
 
     JOB_TYPES = "JOB_TYPES"
