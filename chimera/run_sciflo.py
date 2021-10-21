@@ -27,7 +27,7 @@ def get_accountability_class(context_file):
     if isinstance(context_file, str):
         work_dir = os.path.dirname(context_file)
         with open(context_file, "r") as f:
-            context = json.load(context_file)
+            context = json.load(f)
     path = context.get("module_path")
     if "accountability_module_path" in context:
         path = context.get("accountability_module_path")
