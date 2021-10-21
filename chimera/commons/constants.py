@@ -84,3 +84,5 @@ class ChimeraConstants(object):
     JOB_TYPES = "JOB_TYPES"
 
     JOB_QUEUES = "JOB_QUEUES"
+
+    WORK_DIR = "work_dir"

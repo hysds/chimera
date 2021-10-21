@@ -73,6 +73,7 @@ class PostProcessor(object):
             self._job_result = job_result
         elif isinstance(job_result, str):
             self._job_result = json.load(open(job_result, "r"))
+        self._job_result["work_dir"] = os.path.dirname(sf_context)
         logger.debug("Loaded job result: {}".format(json.dumps(self._job_result)))
 
     def prepare_psuedo_context(self, psuedo_context):

@@ -37,14 +37,14 @@ def get_accountability_class(context_file):
         LOGGER.error(
             "No accountability class specified"
         )
-        return Accountability(context, work_dir)
+        return Accountability(context, work_dir=work_dir)
     cls = getattr(accountability_module, accountability_class_name)
     if not issubclass(cls, Accountability):
         LOGGER.error(
             "accountability class does not extend Accountability"
         )
-        return Accountability(context, work_dir)
-    cls_object = cls(context, work_dir)
+        return Accountability(context, work_dir=work_dir)
+    cls_object = cls(context, work_dir=work_dir)
     return cls_object
 
 

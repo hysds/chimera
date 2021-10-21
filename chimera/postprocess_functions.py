@@ -20,7 +20,7 @@ class PostProcessFunctions(object):
         self._pge_config = pge_config
         self._settings = settings
         self._job_result = job_result
-        self.accountability = Accountability(self._context, os.getcwd(), pge_config=self._pge_config)
+        self.accountability = Accountability(self._context, work_dir=self._job_result.get(chimera_consts.WORK_DIR), pge_config=self._pge_config)
         if mozart_es:
             self._mozart_es = mozart_es
         else:
