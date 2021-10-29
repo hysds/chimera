@@ -5,7 +5,7 @@ import json
 from hysds.es_util import get_grq_es, get_mozart_es
 
 from chimera.commons.accountability import Accountability
-from chimera.commons.constants import ChimeraConstants
+from chimera.commons.constants import ChimeraConstants as chimera_consts
 
 from chimera.logger import logger
 
@@ -19,7 +19,7 @@ class PostProcessFunctions(object):
         self._pge_config = pge_config
         self._settings = settings
         self._job_result = job_result
-        self.accountability = Accountability(self._context)
+        self.accountability = Accountability(self._context, self._job_result.get(chimera_consts.WORK_DIR))
         if mozart_es:
             self._mozart_es = mozart_es
         else:
@@ -39,10 +39,12 @@ class PostProcessFunctions(object):
         :return: a dictionary containing information about the results of the post PGE processes.
         """
         output_context = dict()
+        logger.info(
+            "function_list: {}".format(function_list)
+        )
         for func in function_list:
             self._job_result.update(getattr(self, func)())
         
-        self.accountability.set_status("job-completed")
         return self._job_result
 
     def _check_job_status(self):

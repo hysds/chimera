@@ -73,12 +73,16 @@ class ChimeraConstants(object):
 
     LAST_MOD_TIME = "LastModifiedTime"
 
+    JOB_INFO = "job_info"
+
+    JOB_PAYLOAD = "job_payload"
+
+    PAYLOAD_TASK_ID = "payload_task_id"
+
+    JOB_ID_FIELD = "job_id"
+
     JOB_TYPES = "JOB_TYPES"
 
     JOB_QUEUES = "JOB_QUEUES"
 
-    INPUT_DATASET_TYPE = "dataset_type"
-
-    INPUT_DATASET_ID = "input_dataset_id"
-
-    STEP = "purpose"
+    WORK_DIR = "work_dir"

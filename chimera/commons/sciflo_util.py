@@ -28,6 +28,7 @@ def copy_sciflo_work(output_dir):
                 shutil.copytree(real_path, new_path)
     return
 
+
 def extract_error(sfl_json):
     """Extract SciFlo error and traceback for mozart."""
 
