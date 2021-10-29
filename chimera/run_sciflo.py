@@ -59,9 +59,6 @@ def main(sfl_file, context_file, output_folder):
     accountability = get_accountability_class(context_file)
     accountability.create_job_entry()
     result = run_sciflo(sfl_file, ["sf_context=%s" % context_file], output_folder)
-    # if result != 0:
-    #     # sets status as failed if accountability implemented in chimera, otherwise, does nothing
-    #     set_status_failed(context_file)
     return result
 
 
