@@ -3,11 +3,11 @@ import json
 from chimera.commons.constants import ChimeraConstants as chimera_const
 
 class Accountability(object):
-    def __init__(self, context, work_dir, pge_config=None):
+    def __init__(self, context, work_dir):
         self.context = context
-        self.pge_config = pge_config
         self.job_json = None
         self.job_id = None
+        self.work_dir = work_dir
         if work_dir is not None:
             with open("{}/_job.json".format(work_dir), "r") as f:
                 self.job_json = json.load(f)

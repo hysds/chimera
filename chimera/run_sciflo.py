@@ -48,22 +48,6 @@ def get_accountability_class(context_file):
     return cls_object
 
 
-# sets the accountability status as failed or doesn't do anything at all
-# def set_status_failed(context_file):
-#     context = {}
-#     with open(context_file, "r") as f:
-#         import json
-#         context = json.load(f)
-#     try:
-#         #from nisar_chimera.commons.accountability import NisarAccountability
-#         accountability = get_accountability_class(context)
-#         accountability.set_status("job-failed")
-#     except Exception as e:
-#         LOGGER.info("could not get accountability object")
-#         LOGGER.info("path: {}".format(sys.path))
-#         LOGGER.error(e)
-
-
 def main(sfl_file, context_file, output_folder):
     """Main."""
 

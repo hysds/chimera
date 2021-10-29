@@ -1,7 +1,6 @@
 import traceback
 import time
 import json
-import os
 
 from hysds.es_util import get_grq_es, get_mozart_es
 
@@ -20,7 +19,7 @@ class PostProcessFunctions(object):
         self._pge_config = pge_config
         self._settings = settings
         self._job_result = job_result
-        self.accountability = Accountability(self._context, self._job_result.get(chimera_consts.WORK_DIR), pge_config=self._pge_config)
+        self.accountability = Accountability(self._context, self._job_result.get(chimera_consts.WORK_DIR))
         if mozart_es:
             self._mozart_es = mozart_es
         else:
