@@ -2,6 +2,6 @@ hysds_commons==0.1
 simplejson==3.12.0
 setuptools==38.2.5
 requests==2.20.0
-celery==4.2.0rc1
+celery==5.2.2
 elasticsearch==7.13.4
 yaml==5.1
