@@ -57,15 +57,15 @@ def extract_error(sfl_json):
                         err_str = 'SciFlo step %s with job_id %s (task %s) failed: %s' % \
                                   (proc, job_json['job_id'],
                                    job_json['uuid'], err)
-                        with open('_alt_error.txt', 'w') as f:
+                        with open('_alt_error.txt', 'a') as f:
                             f.write("%s\n" % err_str)
-                        with open('_alt_traceback.txt', 'w') as f:
+                        with open('_alt_traceback.txt', 'a') as f:
                             f.write("%s\n" % job_json['traceback'])
             else:
                 err_str = 'SciFlo step %s failed: %s' % (proc, exc)
-                with open('_alt_error.txt', 'w') as f:
+                with open('_alt_error.txt', 'a') as f:
                     f.write("%s\n" % err_str)
-                with open('_alt_traceback.txt', 'w') as f:
+                with open('_alt_traceback.txt', 'a') as f:
                     f.write("%s\n" % tb)
 
 
