@@ -121,6 +121,12 @@ class PreConditionEvaluator(object):
                         if is_url(v):
                             localize_paths_list.append(v)
 
+                elif isinstance(value, dict):
+                    for v in value:
+                        url = value.get(v)
+                        if is_url(url):
+                            localize_paths_list.append(url)
+
                 elif isinstance(value, str):
                     if is_url(value):
                         localize_paths_list.append(value)
