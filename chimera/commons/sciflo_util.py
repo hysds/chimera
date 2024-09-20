@@ -2,7 +2,7 @@
 import os
 import json
 import re
-import shutil
+import subprocess
 
 WORK_RE = re.compile(r"\d{5}-.+")
 
@@ -99,7 +99,10 @@ def copy_sciflo_work(output_dir):
                 os.unlink(path)
                 base_name = os.path.basename(path)
                 new_path = os.path.join(root, base_name)
-                shutil.copytree(real_path, new_path)
+                try:
+                    subprocess.run(["cp", "-R", real_path, new_path], check=True, text=True, capture_output=True)
+                except subprocess.CalledProcessError as e:
+                    print(f"Error occurred during copy: return code = {e.returncode}\n{e.stderr}")  # captures stderr output
     return
 
 
