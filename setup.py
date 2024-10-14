@@ -4,7 +4,7 @@ adaptation_path = "folder/"
 
 setup(
     name='chimera',
-    version='2.2.3',
+    version='2.2.4',
     packages=find_packages(),
     install_requires=[
         'elasticsearch>=7.0.0,<7.14.0',
