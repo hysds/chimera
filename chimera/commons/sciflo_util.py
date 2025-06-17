@@ -137,7 +137,7 @@ def extract_error(sfl_json):
                         )
                         __write_error_files(err_str, job_json["traceback"])
             else:
-                err_str = "SciFlo step %s failed: %s" % (proc, exc)
+                err_str = "SciFlo step {} failed: {}".format(proc, exc)
                 __write_error_files(err_str, tb)
 
 

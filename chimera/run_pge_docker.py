@@ -82,7 +82,7 @@ def submit_pge_job(sf_context, runconfig, pge_config_file, settings_file, chimer
     module = import_module(module_path)
     cls = getattr(module, class_name)
     if not issubclass(cls, PgeJobSubmitter):
-        raise RuntimeError("Class must be a subclass of {}: {}".format(PgeJobSubmitter.__name__,  cls.__name__))
+        raise RuntimeError(f"Class must be a subclass of {PgeJobSubmitter.__name__}: {cls.__name__}")
     cls_object = cls(sf_context, runconfig, pge_config_file, settings_file, wuid, job_num)
     job_json = cls_object.submit_job()
     logger.info("Finished run_pge_docker step.")

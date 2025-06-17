@@ -10,7 +10,7 @@ from chimera.commons.constants import ChimeraConstants as chimera_consts
 from chimera.logger import logger
 
 
-class PostProcessFunctions(object):
+class PostProcessFunctions:
     MOZART_ES_ENDPOINT = "MOZART"
     GRQ_ES_ENDPOINT = "GRQ"
 
@@ -40,7 +40,7 @@ class PostProcessFunctions(object):
         """
         output_context = dict()
         logger.info(
-            "function_list: {}".format(function_list)
+            f"function_list: {function_list}"
         )
         for func in function_list:
             self._job_result.update(getattr(self, func)())
@@ -56,7 +56,7 @@ class PostProcessFunctions(object):
         job_id = str(self._job_result["payload_id"])
         job_status = str(self._job_result["status"])
 
-        logger.info("Recieved JOB ID: {} with status: {}".format(job_id, job_status))
+        logger.info(f"Recieved JOB ID: {job_id} with status: {job_status}")
 
         if job_status != "job-completed" and job_status != "job-deduped":
             logger.info(
@@ -100,7 +100,7 @@ class PostProcessFunctions(object):
                         )
                     )
                     raise Exception(
-                        "Error querying MOZART for doc {}. {}".format(job_id, str(ex))
+                        f"Error querying MOZART for doc {job_id}. {str(ex)}"
                     )
         except Exception as ex:
             logger.error(
@@ -145,7 +145,7 @@ class PostProcessFunctions(object):
                     )
                 )
                 raise Exception(
-                    "Error querying ES for doc {}. {}".format(job_id, str(ex))
+                    f"Error querying ES for doc {job_id}. {str(ex)}"
                 )
 
             """
@@ -330,7 +330,7 @@ class PostProcessFunctions(object):
                 )
             )
             raise Exception(
-                "Error querying GRQ for product {}. {}".format(doc_id, str(ex))
+                f"Error querying GRQ for product {doc_id}. {str(ex)}"
             )
 
     def wait_condition(self, endpoint, result):
@@ -362,11 +362,11 @@ class PostProcessFunctions(object):
                     slept_seconds += 30
 
                 if slept_seconds + sleep_seconds < timeout:
-                    logger.debug("Slept for {} seconds".format(slept_seconds))
-                    logger.debug("Sleeping for {} seconds".format(sleep_seconds))
+                    logger.debug(f"Slept for {slept_seconds} seconds")
+                    logger.debug(f"Sleeping for {sleep_seconds} seconds")
                 else:
                     sleep_seconds = timeout - slept_seconds
-                    logger.debug("Slept for {} seconds".format(slept_seconds))
+                    logger.debug(f"Slept for {slept_seconds} seconds")
                     logger.debug(
                         "Sleeping for {} seconds to conform to timeout "
                         "of {} seconds".format(sleep_seconds, timeout)
@@ -375,7 +375,7 @@ class PostProcessFunctions(object):
                 if slept_seconds >= timeout:
                     if len(result.get("hits").get("hits")) == 0:
                         raise Exception(
-                            "{} ES taking too long to index document".format(endpoint)
+                            f"{endpoint} ES taking too long to index document"
                         )
                     if endpoint == self.MOZART_ES_ENDPOINT:
                         if (
@@ -395,7 +395,7 @@ class PostProcessFunctions(object):
                 sleep_seconds *= 2
             return True
         except Exception as e:
-            raise Exception("ElasticSearch Operation failed due to : {}".format(str(e)))
+            raise Exception(f"ElasticSearch Operation failed due to : {str(e)}")
 
     def get_product_info(self, product_id):
         """
@@ -418,7 +418,7 @@ class PostProcessFunctions(object):
                         )
                 except Exception as ex:
                     raise Exception(
-                        "ElasticSearch Operation failed due to : {}".format(str(ex))
+                        f"ElasticSearch Operation failed due to : {str(ex)}"
                     )
         except Exception as ex:
             raise Exception(
@@ -530,7 +530,7 @@ class PostProcessFunctions(object):
         """
         Now that we have all job and products information we can put the psuedo context contents together.
         """
-        logger.info("Job Status Code: {}".format(job_status_code))
+        logger.info(f"Job Status Code: {job_status_code}")
         product_url_key = ChimeraConstants.PRODUCT_PATHS
         metadata_key = ChimeraConstants.PRODUCTS_METADATA
 

@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
     # For testing without sfl_exec L0A
     context = simplejson.load(
-        open("test-files/L0B_datatake.json", 'r'))
+        open("test-files/L0B_context.json"))
     #ipp_def_filepath = "../nisar_chimera/configs/precondition_definition.yaml"
     chimera_config = "/Users/mcayanan/git/nisar-pcm/nisar_chimera/configs/chimera_config.yaml"
     pge_config = "/Users/mcayanan/git/nisar-pcm/nisar_chimera/configs/pge_configs/PGE_L0B.yaml"

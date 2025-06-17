@@ -16,19 +16,19 @@ from urllib.parse import urlparse
 EMPTY_FIELD_IDENTIFIER = "__CHIMERA_VAL__"
 
 
-class PreConditionEvaluator(object):
+class PreConditionEvaluator:
 
     def __init__(self, sf_context, chimera_config_filepath, pge_config_filepath, settings_file):
         # load context file
         if isinstance(sf_context, dict):
             self._sf_context = sf_context
         elif isinstance(sf_context, str):
-            self._sf_context = json.load(open(sf_context, 'r'))
-        logger.debug("Loaded context file: {}".format(json.dumps(self._sf_context)))
+            self._sf_context = json.load(open(sf_context))
+        logger.debug(f"Loaded context file: {json.dumps(self._sf_context)}")
 
         # load pge config file
         self._pge_config = load_config(pge_config_filepath)
-        logger.debug("Loaded PGE config file: {}".format(json.dumps(self._pge_config)))
+        logger.debug(f"Loaded PGE config file: {json.dumps(self._pge_config)}")
 
         # load IPP config file
         try:
@@ -42,7 +42,7 @@ class PreConditionEvaluator(object):
                 raise RuntimeError("'class_name' must be defined in the 'preprocessor' section of the "
                                    "Chimera Config file '{}'".format(chimera_config_filepath))
         except Exception as e:
-            raise RuntimeError("Could not read preconditions definition file : {}".format(e))
+            raise RuntimeError(f"Could not read preconditions definition file : {e}")
 
         # load Settings file
         try:
@@ -54,7 +54,7 @@ class PreConditionEvaluator(object):
                 file_name = settings_file
             else:
                 file_name = '~/verdi/etc/settings.yaml'
-            raise RuntimeError("Could not read settings file '{}': {}".format(file_name, e))
+            raise RuntimeError(f"Could not read settings file '{file_name}': {e}")
 
     def repl_val_in_dict(self, d, val, job_params, root=None, optional_fields=None):
         """
@@ -82,16 +82,16 @@ class PreConditionEvaluator(object):
                 else:
                     # check if optionalField; if so, set value to empty string
                     if jp_key in optional_fields:
-                        logger.info("Explicit dot notation key {} is an optional field.".format(jp_key))
-                        logger.info("Setting {} value to empty string.".format(k))
+                        logger.info(f"Explicit dot notation key {jp_key} is an optional field.")
+                        logger.info(f"Setting {k} value to empty string.")
                         d[k] = ""
                     elif k in optional_fields:
-                        logger.info("Key {} is an optional field.".format(k))
-                        logger.info("Setting {} value to empty string.".format(k))
+                        logger.info(f"Key {k} is an optional field.")
+                        logger.info(f"Setting {k} value to empty string.")
                         d[k] = ""
                     else:
-                        logger.error("job_params: {}".format(json.dumps(job_params, indent=2, sort_keys=True)))
-                        raise(ValueError("{} or {} has not been evaluated by the preprocessor.".format(jp_key, k)))
+                        logger.error(f"job_params: {json.dumps(job_params, indent=2, sort_keys=True)}")
+                        raise(ValueError(f"{jp_key} or {k} has not been evaluated by the preprocessor."))
         return matched_keys
 
     def localize_paths(self, output_context):
@@ -145,7 +145,7 @@ class PreConditionEvaluator(object):
         logger.debug("Preparing runconfig for {}".format(self._pge_config.get('pge_name')))
         empty_field_identifier = self._pge_config.get(ChimeraConstants.EMPTY_FIELD_IDENTIFIER,
                                                       EMPTY_FIELD_IDENTIFIER)
-        logger.debug("Empty field identifier: {}".format(empty_field_identifier))
+        logger.debug(f"Empty field identifier: {empty_field_identifier}")
         output_context = dict()
         optional_fields = self._pge_config.get(ChimeraConstants.OPTIONAL_FIELDS, [])
         if self._pge_config.get(ChimeraConstants.RUNCONFIG):
@@ -174,5 +174,5 @@ class PreConditionEvaluator(object):
             output_context = self.prepare_runconfig(job_params)
             return output_context
         except Exception as e:
-            logger.error("Input precondition failure: {}. {}".format(e, traceback.format_exc()))
-            raise RuntimeError("Input precondition failure: {}".format(e))
+            logger.error(f"Input precondition failure: {e}. {traceback.format_exc()}")
+            raise RuntimeError(f"Input precondition failure: {e}")

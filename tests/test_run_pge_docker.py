@@ -34,7 +34,7 @@ if __name__ == '__main__':
     os.path.dirname(os.path.realpath(__file__))
     sf_context = os.path.dirname(os.path.realpath(
         __file__))+"/test-files/L1B_HR_SLC-sfcontext.json"
-    runconfig = json.loads(open(os.path.dirname(os.path.realpath(__file__))+"/test-files/L1B_HR_SLC-runconfig.json", "r")
+    runconfig = json.loads(open(os.path.dirname(os.path.realpath(__file__))+"/test-files/L1B_HR_SLC-runconfig.json")
                            .read())
     pge_config_file = os.path.abspath(os.path.join(os.path.realpath(__file__), "../../",
                                                    "swot_chimera/configs/pge_configs/examples/PGE_L1B_HR_SLC.json"))

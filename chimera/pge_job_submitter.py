@@ -13,14 +13,14 @@ from chimera.logger import logger
 from hysds_commons.job_utils import resolve_hysds_job
 
 
-class PgeJobSubmitter(object):
+class PgeJobSubmitter:
     def __init__(self, context, run_config, pge_config_file, settings_file, wuid=None, job_num=None):
         # load context file
         if isinstance(context, dict):
             self._context = context
         elif isinstance(context, str):
-            self._context = json.load(open(context, 'r'))
-        logger.debug("Loaded context file: {}".format(json.dumps(self._context)))
+            self._context = json.load(open(context))
+        logger.debug(f"Loaded context file: {json.dumps(self._context)}")
 
         # This is intended to represent the top level working directory of the job. It's assumed to be at the same
         # level as the given context file.
@@ -28,7 +28,7 @@ class PgeJobSubmitter(object):
 
         # load pge config file
         self._pge_config = load_config(pge_config_file)
-        logger.debug("Loaded PGE config file: {}".format(json.dumps(self._pge_config)))
+        logger.debug(f"Loaded PGE config file: {json.dumps(self._pge_config)}")
 
         self._wuid = wuid
         self._job_num = job_num
@@ -41,13 +41,13 @@ class PgeJobSubmitter(object):
                 self._chimera_config = self._settings.get("CHIMERA", None)
                 if self._wuid and self._job_num is not None:
                     if not self._chimera_config:
-                        raise RuntimeError("Must specify a CHIMERA area in {}".format(settings_file))
+                        raise RuntimeError(f"Must specify a CHIMERA area in {settings_file}")
         except Exception as e:
             if settings_file:
                 file_name = settings_file
             else:
                 file_name = '~/verdi/etc/settings.yaml'
-            raise RuntimeError("Could not read settings file '{}': {}".format(file_name, e))
+            raise RuntimeError(f"Could not read settings file '{file_name}': {e}")
 
         self._run_config = run_config
 
@@ -196,7 +196,7 @@ class PgeJobSubmitter(object):
             dataset_id = self._run_config.get("pge_job_name", None)
 
             if dataset_id:
-                logger.info("dataset_id is set to {}".format(dataset_id))
+                logger.info(f"dataset_id is set to {dataset_id}")
 
             job_json = self.construct_job_payload(params, dataset_id=dataset_id, pge_config=self._pge_config,
                                                   job_type=job_type, job_queue=job_queue, payload_hash=localize_hash)
@@ -205,7 +205,7 @@ class PgeJobSubmitter(object):
             job_json['payload']['_sciflo_wuid'] = self._wuid
             job_json['payload']['_sciflo_job_num'] = self._job_num
 
-            logger.debug("Resolved Job JSON: {}".format(json.dumps(job_json)))
+            logger.debug(f"Resolved Job JSON: {json.dumps(job_json)}")
         else:
             # If we're running inline, we will set the params as the job_json
             job_json = params
