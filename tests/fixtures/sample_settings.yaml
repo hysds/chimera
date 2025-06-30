@@ -1,0 +1,9 @@
+# Sample settings file for testing
+ES_URL: "http://localhost:9200"
+JOBS_ES_URL: "http://localhost:9200"
+GRQ_ES_URL: "http://localhost:9300"
+
+# Test specific settings
+test_mode: true
+debug_level: "INFO"
+output_dir: "/tmp/test_output"
