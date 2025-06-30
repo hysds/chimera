@@ -1,0 +1,19 @@
+# Development dependencies for Chimera Python 3.12 upgrade
+
+# Testing framework
+pytest>=7.0.0
+pytest-mock>=3.10.0  
+pytest-cov>=4.0.0    # Coverage reporting
+pytest-xdist>=3.0.0  # Parallel test execution
+
+# Code quality and formatting
+black>=22.0.0
+isort>=5.10.0
+flake8>=5.0.0
+pylint>=2.15.0
+mypy>=1.0.0
+pyupgrade>=3.3.0
+
+# Additional test utilities
+pytest-timeout>=2.1.0  # Test timeout management
+pytest-benchmark>=4.0.0  # Performance benchmarking
