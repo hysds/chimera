@@ -6,20 +6,30 @@ of performing the hash calculation to determine dedup.
 
 import json
 import os
-from chimera.commons.constants import ChimeraConstants as chimera_const
-from chimera.commons.conf_util import load_config, YamlConf
-from chimera.logger import logger
 
 from hysds_commons.job_utils import resolve_hysds_job
 
+from chimera.commons.conf_util import YamlConf, load_config
+from chimera.commons.constants import ChimeraConstants as chimera_const
+from chimera.logger import logger
+
 
 class PgeJobSubmitter:
-    def __init__(self, context, run_config, pge_config_file, settings_file, wuid=None, job_num=None):
+    def __init__(
+        self,
+        context,
+        run_config,
+        pge_config_file,
+        settings_file,
+        wuid=None,
+        job_num=None,
+    ):
         # load context file
         if isinstance(context, dict):
             self._context = context
         elif isinstance(context, str):
-            self._context = json.load(open(context))
+            with open(context) as f:
+                self._context = json.load(f)
         logger.debug(f"Loaded context file: {json.dumps(self._context)}")
 
         # This is intended to represent the top level working directory of the job. It's assumed to be at the same
@@ -41,12 +51,14 @@ class PgeJobSubmitter:
                 self._chimera_config = self._settings.get("CHIMERA", None)
                 if self._wuid and self._job_num is not None:
                     if not self._chimera_config:
-                        raise RuntimeError(f"Must specify a CHIMERA area in {settings_file}")
+                        raise RuntimeError(
+                            f"Must specify a CHIMERA area in {settings_file}"
+                        )
         except Exception as e:
             if settings_file:
                 file_name = settings_file
             else:
-                file_name = '~/verdi/etc/settings.yaml'
+                file_name = "~/verdi/etc/settings.yaml"
             raise RuntimeError(f"Could not read settings file '{file_name}': {e}")
 
         self._run_config = run_config
@@ -59,12 +71,17 @@ class PgeJobSubmitter:
         :return:
         """
 
-        input_products = self._run_config.get(chimera_const.RC_INPUT).get(input_file_key, None)
+        input_products = self._run_config.get(chimera_const.RC_INPUT).get(
+            input_file_key, None
+        )
         if input_products is None:
             return None
         if isinstance(input_products, list):
-            input_file = [os.path.basename(path) for path in input_products
-                          if not path.endswith(".XFR")]
+            input_file = [
+                os.path.basename(path)
+                for path in input_products
+                if not path.endswith(".XFR")
+            ]
             files = "-".join(input_file)
         else:
             input_file = os.path.basename(input_products)
@@ -93,17 +110,21 @@ class PgeJobSubmitter:
         :return:
         """
         try:
-            localize_urls = self.get_localize_urls(self._run_config.get(chimera_const.LOCALIZE))
+            localize_urls = self.get_localize_urls(
+                self._run_config.get(chimera_const.LOCALIZE)
+            )
         except Exception:
             raise ValueError(
                 "Couldn't find {} in runconfig from input preprocessor".format(
-                    chimera_const.LOCALIZE))
+                    chimera_const.LOCALIZE
+                )
+            )
 
         job_params = {
             "run_config": self._run_config,
             "pge_config": self._pge_config,
             "localize_urls": localize_urls,
-            "simulate_outputs": self._run_config[chimera_const.SIMULATE_OUTPUTS]
+            "simulate_outputs": self._run_config[chimera_const.SIMULATE_OUTPUTS],
         }
 
         return job_params
@@ -128,8 +149,15 @@ class PgeJobSubmitter:
         """
         return job_json
 
-    def construct_job_payload(self, params=None, dataset_id=None, pge_config=None, job_type=None, job_queue=None,
-                              payload_hash=None):
+    def construct_job_payload(
+        self,
+        params=None,
+        dataset_id=None,
+        pge_config=None,
+        job_type=None,
+        job_queue=None,
+        payload_hash=None,
+    ):
         """
         Uses resolve hysds job to get the job json
         :param params:
@@ -151,15 +179,23 @@ class PgeJobSubmitter:
                 tags = [pge_config["pge_name"], dataset_id]
             else:
                 tags = [pge_config["pge_name"]]
-            job = resolve_hysds_job(job_type, job_queue,
-                                    params=params, job_name=job_name, enable_dedup=True, tags=tags,
-                                    payload_hash=payload_hash)
+            job = resolve_hysds_job(
+                job_type,
+                job_queue,
+                params=params,
+                job_name=job_name,
+                enable_dedup=True,
+                tags=tags,
+                payload_hash=payload_hash,
+            )
         except Exception as e:
-            raise Exception(e)
-        except:
-            raise RuntimeError("Wasn't able to get Job JSON from resolve_hysds_job.")
+            raise RuntimeError(
+                f"Wasn't able to get Job JSON from resolve_hysds_job: {e}"
+            ) from e
 
-        print(json.dumps(job, sort_keys=True, indent=4, separators=(',', ': ')))
+        logger.debug(
+            f"Constructed job payload: {json.dumps(job, sort_keys=True, indent=4, separators=(',', ': '))}"
+        )
         return job
 
     def submit_job(self):
@@ -173,14 +209,18 @@ class PgeJobSubmitter:
         if self._wuid and self._job_num is not None:
             # get HySDS job type and queue information
             job_name = self._chimera_config.get(chimera_const.JOB_TYPES).get(
-                self._pge_config.get(chimera_const.PGE_NAME))
+                self._pge_config.get(chimera_const.PGE_NAME)
+            )
             job_queue = self._chimera_config.get(chimera_const.JOB_QUEUES).get(
-                self._pge_config.get(chimera_const.PGE_NAME))
+                self._pge_config.get(chimera_const.PGE_NAME)
+            )
 
             if chimera_const.RELEASE_VERSION in self._context:
                 release_version = self._context[chimera_const.RELEASE_VERSION]
             else:
-                release_version = self._context.get('container_specification').get('version')
+                release_version = self._context.get("container_specification").get(
+                    "version"
+                )
 
             job_type = job_name + ":" + release_version
 
@@ -198,12 +238,18 @@ class PgeJobSubmitter:
             if dataset_id:
                 logger.info(f"dataset_id is set to {dataset_id}")
 
-            job_json = self.construct_job_payload(params, dataset_id=dataset_id, pge_config=self._pge_config,
-                                                  job_type=job_type, job_queue=job_queue, payload_hash=localize_hash)
+            job_json = self.construct_job_payload(
+                params,
+                dataset_id=dataset_id,
+                pge_config=self._pge_config,
+                job_type=job_type,
+                job_queue=job_queue,
+                payload_hash=localize_hash,
+            )
             # Set the sciflo fields wuid and job num
             # these are internally passed context information available in sciflo processes
-            job_json['payload']['_sciflo_wuid'] = self._wuid
-            job_json['payload']['_sciflo_job_num'] = self._job_num
+            job_json["payload"]["_sciflo_wuid"] = self._wuid
+            job_json["payload"]["_sciflo_job_num"] = self._job_num
 
             logger.debug(f"Resolved Job JSON: {json.dumps(job_json)}")
         else:

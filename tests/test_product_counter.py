@@ -1,10 +1,9 @@
-import simplejson
 import sys
 
+import simplejson
 from smap_sciflo import input_preprocessor as ipp
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     context_file = "test-files/sf_context.json"
     context = simplejson.load(open(context_file))

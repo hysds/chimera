@@ -1,9 +1,9 @@
-import re
-import yaml
-import os
 import json
-
+import os
+import re
 from collections import OrderedDict
+
+import yaml
 
 # have yaml parse regular expressions
 yaml.SafeLoader.add_constructor(
@@ -75,11 +75,7 @@ class JobContext:
         try:
             return self._ctx[key]
         except KeyError:
-            raise (
-                Exception(
-                    f"Context '{key}' doesn't exist in {self._file}."
-                )
-            )
+            raise (Exception(f"Context '{key}' doesn't exist in {self._file}."))
 
     def set(self, key, val):
         self._ctx[key] = val
@@ -87,7 +83,6 @@ class JobContext:
     def save(self):
         with open(self._file, "w") as f:
             json.dump(self._ctx, f, indent=2, sort_keys=True)
-
 
 
 class DockerParams:
@@ -111,11 +106,7 @@ class DockerParams:
         try:
             return self._params[key]
         except KeyError:
-            raise (
-                Exception(
-                    f"Docker params '{key}' doesn't exist in {self._file}."
-                )
-            )
+            raise (Exception(f"Docker params '{key}' doesn't exist in {self._file}."))
 
 
 def load_config(config_filepath):

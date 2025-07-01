@@ -1,5 +1,4 @@
 import logging
-
 from enum import Enum
 
 # set logger and custom filter to handle being run from sciflo
@@ -31,17 +30,20 @@ class LogLevels(Enum):
         elif level == LogLevels.ERROR.value:
             logger.setLevel(logging.ERROR)
         else:
-            raise RuntimeError("{} is not a valid logging level. Should be one of the following: {}".format(
-                level, LogLevels.list()))
+            raise RuntimeError(
+                "{} is not a valid logging level. Should be one of the following: {}".format(
+                    level, LogLevels.list()
+                )
+            )
 
 
 class LogFilter(logging.Filter):
     def filter(self, record):
-        if not hasattr(record, 'id'):
-            record.id = '--'
+        if not hasattr(record, "id"):
+            record.id = "--"
         return True
 
 
-logger = logging.getLogger('nisar_chimera')
+logger = logging.getLogger("nisar_chimera")
 logger.setLevel(logging.INFO)
 logger.addFilter(LogFilter())

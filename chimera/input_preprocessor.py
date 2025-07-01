@@ -24,11 +24,13 @@ def process(sf_context, chimera_config_file, pge_config_filepath, settings_file)
     :return: python dict containing context for the PGE to run
     """
     logger.info("Starting input_preprocessor step.")
-    pre_cond_evaluator = PreConditionEvaluator(sf_context, chimera_config_file, pge_config_filepath, settings_file)
+    pre_cond_evaluator = PreConditionEvaluator(
+        sf_context, chimera_config_file, pge_config_filepath, settings_file
+    )
     output_context = pre_cond_evaluator.evaluate()
     logger.info("Finished input_preprocessor step.")
     return output_context
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

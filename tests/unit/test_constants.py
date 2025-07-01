@@ -1,6 +1,7 @@
 """
 Unit tests for chimera.commons.constants module.
 """
+
 import pytest
 
 from chimera.commons.constants import ChimeraConstants
@@ -70,10 +71,11 @@ class TestChimeraConstants:
     def test_constants_are_strings(self):
         """Test that all constants are string values."""
         constants_attrs = [
-            attr for attr in dir(ChimeraConstants) 
-            if not attr.startswith('_') and attr.isupper()
+            attr
+            for attr in dir(ChimeraConstants)
+            if not attr.startswith("_") and attr.isupper()
         ]
-        
+
         for attr_name in constants_attrs:
             attr_value = getattr(ChimeraConstants, attr_name)
             assert isinstance(attr_value, str), f"{attr_name} should be a string"
@@ -81,22 +83,24 @@ class TestChimeraConstants:
     def test_constants_uniqueness(self):
         """Test that constant values are unique (no duplicates)."""
         constants_attrs = [
-            attr for attr in dir(ChimeraConstants) 
-            if not attr.startswith('_') and attr.isupper()
+            attr
+            for attr in dir(ChimeraConstants)
+            if not attr.startswith("_") and attr.isupper()
         ]
-        
+
         values = [getattr(ChimeraConstants, attr) for attr in constants_attrs]
         unique_values = set(values)
-        
+
         assert len(values) == len(unique_values), "Some constant values are duplicated"
 
     def test_constants_not_empty(self):
         """Test that no constants are empty strings."""
         constants_attrs = [
-            attr for attr in dir(ChimeraConstants) 
-            if not attr.startswith('_') and attr.isupper()
+            attr
+            for attr in dir(ChimeraConstants)
+            if not attr.startswith("_") and attr.isupper()
         ]
-        
+
         for attr_name in constants_attrs:
             attr_value = getattr(ChimeraConstants, attr_name)
             assert attr_value.strip(), f"{attr_name} should not be empty"
@@ -106,22 +110,24 @@ class TestChimeraConstants:
         # Test critical constants that are likely used throughout the codebase
         expected_values = {
             "PGE_NAME": "pge_name",
-            "PRECONDITIONS": "preconditions", 
+            "PRECONDITIONS": "preconditions",
             "RUNCONFIG": "runconfig",
             "LOCALIZE_GROUPS": "localize_groups",
             "PRIMARY_INPUT": "primary_input",
             "PRODUCTS_METADATA": "product_metadata",
-            "JOB_ID_FIELD": "job_id"
+            "JOB_ID_FIELD": "job_id",
         }
-        
+
         for attr_name, expected_value in expected_values.items():
             actual_value = getattr(ChimeraConstants, attr_name)
-            assert actual_value == expected_value, f"{attr_name} should be '{expected_value}'"
+            assert (
+                actual_value == expected_value
+            ), f"{attr_name} should be '{expected_value}'"
 
     def test_constants_accessibility_from_instance(self):
         """Test that constants are accessible from class instance."""
         constants = ChimeraConstants()
-        
+
         # Test that constants can be accessed from instance
         assert constants.PGE_NAME == "pge_name"
         assert constants.PRECONDITIONS == "preconditions"
@@ -137,34 +143,57 @@ class TestChimeraConstants:
     def test_all_expected_constants_exist(self):
         """Test that all expected constants are defined."""
         expected_constants = [
-            "PGE_NAME", "PRECONDITIONS", "POSTPROCESS", "RUNCONFIG",
-            "LOCALIZE_GROUPS", "LOCALIZE", "CONFIGURATION", "PRODUCTION_DATETIME",
-            "RC_INPUT", "CONDITIONS", "PRODUCTS_ID", "PRIMARY_INPUT",
-            "EMPTY_FIELD_IDENTIFIER", "OPTIONAL_FIELDS", "PRODUCTS_METADATA",
-            "PRODUCT_NAMES", "PRODUCT_PATHS", "RELEASE_VERSION", "SIMULATE_OUTPUTS",
-            "PGE_SIM_MODE", "OUTPUT_TYPES", "LAST_MOD_TIME", "JOB_INFO",
-            "JOB_PAYLOAD", "PAYLOAD_TASK_ID", "JOB_ID_FIELD", "JOB_TYPES",
-            "JOB_QUEUES", "WORK_DIR"
+            "PGE_NAME",
+            "PRECONDITIONS",
+            "POSTPROCESS",
+            "RUNCONFIG",
+            "LOCALIZE_GROUPS",
+            "LOCALIZE",
+            "CONFIGURATION",
+            "PRODUCTION_DATETIME",
+            "RC_INPUT",
+            "CONDITIONS",
+            "PRODUCTS_ID",
+            "PRIMARY_INPUT",
+            "EMPTY_FIELD_IDENTIFIER",
+            "OPTIONAL_FIELDS",
+            "PRODUCTS_METADATA",
+            "PRODUCT_NAMES",
+            "PRODUCT_PATHS",
+            "RELEASE_VERSION",
+            "SIMULATE_OUTPUTS",
+            "PGE_SIM_MODE",
+            "OUTPUT_TYPES",
+            "LAST_MOD_TIME",
+            "JOB_INFO",
+            "JOB_PAYLOAD",
+            "PAYLOAD_TASK_ID",
+            "JOB_ID_FIELD",
+            "JOB_TYPES",
+            "JOB_QUEUES",
+            "WORK_DIR",
         ]
-        
+
         for constant_name in expected_constants:
-            assert hasattr(ChimeraConstants, constant_name), f"Missing constant: {constant_name}"
+            assert hasattr(
+                ChimeraConstants, constant_name
+            ), f"Missing constant: {constant_name}"
 
     def test_init_method(self):
         """Test the __init__ method."""
         constants = ChimeraConstants()
         # The __init__ method currently just passes, so we just test that it works
         assert constants is not None
-        
+
     def test_constants_immutability_concept(self):
         """Test the concept that constants should not be modified (by convention)."""
         # While Python doesn't enforce true immutability, test that constants
         # are defined at class level and accessible
         original_value = ChimeraConstants.PGE_NAME
-        
+
         # Constants should be accessible and have the expected value
         assert ChimeraConstants.PGE_NAME == "pge_name"
-        
+
         # While we can't prevent modification in Python, we can test the original value
         assert ChimeraConstants.PGE_NAME == original_value
 
@@ -177,9 +206,9 @@ class TestConstantsIntegration:
         test_dict = {
             ChimeraConstants.PGE_NAME: "test_pge",
             ChimeraConstants.RUNCONFIG: {"test": "config"},
-            ChimeraConstants.PRECONDITIONS: ["condition1", "condition2"]
+            ChimeraConstants.PRECONDITIONS: ["condition1", "condition2"],
         }
-        
+
         assert test_dict[ChimeraConstants.PGE_NAME] == "test_pge"
         assert test_dict[ChimeraConstants.RUNCONFIG]["test"] == "config"
         assert len(test_dict[ChimeraConstants.PRECONDITIONS]) == 2
@@ -189,7 +218,7 @@ class TestConstantsIntegration:
         # Test string formatting
         message = f"Processing {ChimeraConstants.PGE_NAME}: test_pge"
         assert "pge_name" in message
-        
+
         # Test string concatenation
         key = "config_" + ChimeraConstants.RUNCONFIG
         assert key == "config_runconfig"
@@ -199,7 +228,7 @@ class TestConstantsIntegration:
         # Test equality
         assert ChimeraConstants.PGE_NAME == "pge_name"
         assert ChimeraConstants.PGE_NAME != "invalid_name"
-        
+
         # Test in membership
         valid_keys = [ChimeraConstants.PGE_NAME, ChimeraConstants.RUNCONFIG]
         assert "pge_name" in [k for k in valid_keys]

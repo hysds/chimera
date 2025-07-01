@@ -1,10 +1,12 @@
 """
 Pytest configuration and shared fixtures for Chimera unit tests.
 """
+
 import os
 import tempfile
-import pytest
 from pathlib import Path
+
+import pytest
 
 
 @pytest.fixture

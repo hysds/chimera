@@ -1,8 +1,9 @@
 import json
 import os
+
 from swot_chimera import run_pge_docker
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
     This is for testing of PGE Job Submission JSON
     Comment out from hysds.celery import app in query_util.py
@@ -32,16 +33,31 @@ if __name__ == '__main__':
 
     # Testing L0B PGE job submission
     os.path.dirname(os.path.realpath(__file__))
-    sf_context = os.path.dirname(os.path.realpath(
-        __file__))+"/test-files/L1B_HR_SLC-sfcontext.json"
-    runconfig = json.loads(open(os.path.dirname(os.path.realpath(__file__))+"/test-files/L1B_HR_SLC-runconfig.json")
-                           .read())
-    pge_config_file = os.path.abspath(os.path.join(os.path.realpath(__file__), "../../",
-                                                   "swot_chimera/configs/pge_configs/examples/PGE_L1B_HR_SLC.json"))
+    test_files_dir = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)), "test-files"
+    )
+    sf_context = os.path.join(test_files_dir, "L1B_HR_SLC-sfcontext.json")
+    with open(os.path.join(test_files_dir, "L1B_HR_SLC-runconfig.json")) as f:
+        runconfig = json.load(f)
+    pge_config_file = os.path.abspath(
+        os.path.join(
+            os.path.realpath(__file__),
+            "../../",
+            "swot_chimera/configs/pge_configs/examples/PGE_L1B_HR_SLC.json",
+        )
+    )
     sys_config_file = os.path.abspath(
-        os.path.join(os.path.realpath(__file__), "../..", "swot_chimera/configs/sys.config.json"))
-    job_json = os.path.dirname(os.path.realpath(
-        __file__))+"/test-files/L0B_job.json"
+        os.path.join(
+            os.path.realpath(__file__), "../..", "swot_chimera/configs/sys.config.json"
+        )
+    )
+    job_json = os.path.join(test_files_dir, "L0B_job.json")
 
-    run_pge_docker.submit_pge_job(sf_context, runconfig, pge_config_file, sys_config_file,
-                                  wuid="1213", job_num="231232")
+    run_pge_docker.submit_pge_job(
+        sf_context,
+        runconfig,
+        pge_config_file,
+        sys_config_file,
+        wuid="1213",
+        job_num="231232",
+    )
