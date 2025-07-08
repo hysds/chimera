@@ -8,10 +8,9 @@ setup(
     python_requires=">=3.12",
     packages=find_packages(),
     install_requires=[
-        'elasticsearch>=7.10.0,<8.0.0',  # Latest 7.x with Python 3.12 support
-        'elasticsearch-dsl>=7.4.0,<8.0.0',  # Latest 7.x compatible
-        'requests>=2.28.0',  # Python 3.12 support
-        'simplejson>=3.18.0',  # Python 3.12 support
-        'PyYAML>=6.0',  # Replace yaml package, Python 3.12 support
+        'elasticsearch>=7.0.0,<7.14.0',
+        'elasticsearch-dsl>=7.0.0,<=7.4.0',
+        'requests>=2.18.4',
+        'simplejson>=3.11.1'
     ]
 )
