@@ -15,7 +15,14 @@ from chimera.logger import logger
 from chimera.postprocess_evaluator import PostProcessor
 
 
-def post_process(sf_context, job_result, chimera_config_file, pge_config_file,  settings_file, test_mode=False):
+def post_process(
+    sf_context,
+    job_result,
+    chimera_config_file,
+    pge_config_file,
+    settings_file,
+    test_mode=False,
+):
     """
     The main task of the post processor is
     to create a file [PGE_type]_context.json.
@@ -37,11 +44,13 @@ def post_process(sf_context, job_result, chimera_config_file, pge_config_file,  
     @pge_config_file - path of the config file of specific PGE type
     """
     logger.info("Starting post_preprocessor step.")
-    post_processor = PostProcessor(sf_context, chimera_config_file, pge_config_file,  settings_file, job_result)
+    post_processor = PostProcessor(
+        sf_context, chimera_config_file, pge_config_file, settings_file, job_result
+    )
     output_context = post_processor.process()
     logger.info("Finished post_processor step.")
     return output_context
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

@@ -1,25 +1,28 @@
-import traceback
-import time
 import json
+import time
+import traceback
 
 from hysds.es_util import get_grq_es, get_mozart_es
 
 from chimera.commons.accountability import Accountability
 from chimera.commons.constants import ChimeraConstants as chimera_consts
-
 from chimera.logger import logger
 
 
-class PostProcessFunctions(object):
+class PostProcessFunctions:
     MOZART_ES_ENDPOINT = "MOZART"
     GRQ_ES_ENDPOINT = "GRQ"
 
-    def __init__(self, context, pge_config, settings, job_result, mozart_es=None, grq_es=None):
+    def __init__(
+        self, context, pge_config, settings, job_result, mozart_es=None, grq_es=None
+    ):
         self._context = context
         self._pge_config = pge_config
         self._settings = settings
         self._job_result = job_result
-        self.accountability = Accountability(self._context, self._job_result.get(chimera_consts.WORK_DIR))
+        self.accountability = Accountability(
+            self._context, self._job_result.get(chimera_consts.WORK_DIR)
+        )
         if mozart_es:
             self._mozart_es = mozart_es
         else:
@@ -39,12 +42,10 @@ class PostProcessFunctions(object):
         :return: a dictionary containing information about the results of the post PGE processes.
         """
         output_context = dict()
-        logger.info(
-            "function_list: {}".format(function_list)
-        )
+        logger.info(f"function_list: {function_list}")
         for func in function_list:
             self._job_result.update(getattr(self, func)())
-        
+
         return self._job_result
 
     def _check_job_status(self):
@@ -56,7 +57,7 @@ class PostProcessFunctions(object):
         job_id = str(self._job_result["payload_id"])
         job_status = str(self._job_result["status"])
 
-        logger.info("Recieved JOB ID: {} with status: {}".format(job_id, job_status))
+        logger.info(f"Recieved JOB ID: {job_id} with status: {job_status}")
 
         if job_status != "job-completed" and job_status != "job-deduped":
             logger.info(
@@ -100,7 +101,7 @@ class PostProcessFunctions(object):
                         )
                     )
                     raise Exception(
-                        "Error querying MOZART for doc {}. {}".format(job_id, str(ex))
+                        f"Error querying MOZART for doc {job_id}. {str(ex)}"
                     )
         except Exception as ex:
             logger.error(
@@ -144,9 +145,7 @@ class PostProcessFunctions(object):
                         job_id, str(ex), traceback.format_exc()
                     )
                 )
-                raise Exception(
-                    "Error querying ES for doc {}. {}".format(job_id, str(ex))
-                )
+                raise Exception(f"Error querying ES for doc {job_id}. {str(ex)}")
 
             """
             check if original job failed -> this would happen when at the moment
@@ -206,11 +205,11 @@ class PostProcessFunctions(object):
 
     def _create_products_list(self, products):
         """
-            This function creates a list of the product URLs and metadata required
-            for the next PGE's input preprocessor.
-            :param products: list of products staged after PGE run
-            :return: tuple( product's id, list of products' URLs, list of products'
-            metadata)
+        This function creates a list of the product URLs and metadata required
+        for the next PGE's input preprocessor.
+        :param products: list of products staged after PGE run
+        :return: tuple( product's id, list of products' URLs, list of products'
+        metadata)
         """
         product_id = None
         products_url_list = []
@@ -321,7 +320,9 @@ class PostProcessFunctions(object):
         }
 
         try:
-            if self.wait_for_doc(endpoint=self.GRQ_ES_ENDPOINT, query=query, timeout=120):
+            if self.wait_for_doc(
+                endpoint=self.GRQ_ES_ENDPOINT, query=query, timeout=120
+            ):
                 return True
         except Exception as ex:
             logger.error(
@@ -329,15 +330,16 @@ class PostProcessFunctions(object):
                     doc_id, str(ex), traceback.format_exc()
                 )
             )
-            raise Exception(
-                "Error querying GRQ for product {}. {}".format(doc_id, str(ex))
-            )
+            raise Exception(f"Error querying GRQ for product {doc_id}. {str(ex)}")
 
     def wait_condition(self, endpoint, result):
         results_exist = len(result.get("hits").get("hits")) == 0
         if endpoint == self.MOZART_ES_ENDPOINT:
-            return results_exist or str(result.get("hits").get("hits")[0].get(
-                "_source").get("status")) == "job-started"
+            return (
+                results_exist
+                or str(result.get("hits").get("hits")[0].get("_source").get("status"))
+                == "job-started"
+            )
         if endpoint == self.GRQ_ES_ENDPOINT:
             return results_exist
 
@@ -362,11 +364,11 @@ class PostProcessFunctions(object):
                     slept_seconds += 30
 
                 if slept_seconds + sleep_seconds < timeout:
-                    logger.debug("Slept for {} seconds".format(slept_seconds))
-                    logger.debug("Sleeping for {} seconds".format(sleep_seconds))
+                    logger.debug(f"Slept for {slept_seconds} seconds")
+                    logger.debug(f"Sleeping for {sleep_seconds} seconds")
                 else:
                     sleep_seconds = timeout - slept_seconds
-                    logger.debug("Slept for {} seconds".format(slept_seconds))
+                    logger.debug(f"Slept for {slept_seconds} seconds")
                     logger.debug(
                         "Sleeping for {} seconds to conform to timeout "
                         "of {} seconds".format(sleep_seconds, timeout)
@@ -375,7 +377,7 @@ class PostProcessFunctions(object):
                 if slept_seconds >= timeout:
                     if len(result.get("hits").get("hits")) == 0:
                         raise Exception(
-                            "{} ES taking too long to index document".format(endpoint)
+                            f"{endpoint} ES taking too long to index document"
                         )
                     if endpoint == self.MOZART_ES_ENDPOINT:
                         if (
@@ -395,15 +397,15 @@ class PostProcessFunctions(object):
                 sleep_seconds *= 2
             return True
         except Exception as e:
-            raise Exception("ElasticSearch Operation failed due to : {}".format(str(e)))
+            raise Exception(f"ElasticSearch Operation failed due to : {str(e)}")
 
     def get_product_info(self, product_id):
         """
-            This function gets the product's URL and associated metadata from Elastic
-            Search
-            :param product_id: id of product
-            :return: tuple(product_url, metadata)
-            """
+        This function gets the product's URL and associated metadata from Elastic
+        Search
+        :param product_id: id of product
+        :return: tuple(product_url, metadata)
+        """
         response = None
         try:
             if self.product_in_grq(doc_id=product_id):
@@ -418,7 +420,7 @@ class PostProcessFunctions(object):
                         )
                 except Exception as ex:
                     raise Exception(
-                        "ElasticSearch Operation failed due to : {}".format(str(ex))
+                        f"ElasticSearch Operation failed due to : {str(ex)}"
                     )
         except Exception as ex:
             raise Exception(
@@ -530,7 +532,7 @@ class PostProcessFunctions(object):
         """
         Now that we have all job and products information we can put the psuedo context contents together.
         """
-        logger.info("Job Status Code: {}".format(job_status_code))
+        logger.info(f"Job Status Code: {job_status_code}")
         product_url_key = ChimeraConstants.PRODUCT_PATHS
         metadata_key = ChimeraConstants.PRODUCTS_METADATA
 

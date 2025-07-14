@@ -1,4 +1,4 @@
-class PreConditionFunctions(object):
+class PreConditionFunctions:
     def __init__(self, context, pge_config, settings, job_params):
         self._context = context
         self._pge_config = pge_config

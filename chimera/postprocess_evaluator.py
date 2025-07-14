@@ -1,34 +1,34 @@
 import json
 import os
 import traceback
-
 from importlib import import_module
 
-from chimera.logger import logger
 from chimera.commons.conf_util import YamlConf, load_config
 from chimera.commons.constants import ChimeraConstants
+from chimera.logger import logger
 from chimera.postprocess_functions import PostProcessFunctions
 
 
-class PostProcessor(object):
+class PostProcessor:
     def __init__(
         self,
         sf_context,
         chimera_config_filepath,
         pge_config_filepath,
         settings_file,
-        job_result
+        job_result,
     ):
         # load context file
         if isinstance(sf_context, dict):
             self._sf_context = sf_context
         elif isinstance(sf_context, str):
-            self._sf_context = json.load(open(sf_context, "r"))
-        logger.debug("Loaded context file: {}".format(json.dumps(self._sf_context)))
+            with open(sf_context) as f:
+                self._sf_context = json.load(f)
+        logger.debug(f"Loaded context file: {json.dumps(self._sf_context)}")
 
         # load pge config file
         self._pge_config = load_config(pge_config_filepath)
-        logger.debug("Loaded PGE config file: {}".format(json.dumps(self._pge_config)))
+        logger.debug(f"Loaded PGE config file: {json.dumps(self._pge_config)}")
 
         # load PP config file
         try:
@@ -50,9 +50,7 @@ class PostProcessor(object):
                     "Chimera Config file '{}'".format(chimera_config_filepath)
                 )
         except Exception as e:
-            raise RuntimeError(
-                "Could not read preconditions definition file : {}".format(e)
-            )
+            raise RuntimeError(f"Could not read preconditions definition file : {e}")
 
         # load Settings file
         try:
@@ -64,17 +62,16 @@ class PostProcessor(object):
                 file_name = settings_file
             else:
                 file_name = "~/verdi/etc/settings.yaml"
-            raise RuntimeError(
-                "Could not read settings file '{}': {}".format(file_name, e)
-            )
+            raise RuntimeError(f"Could not read settings file '{file_name}': {e}")
 
         # load PGE job result
         if isinstance(job_result, dict):
             self._job_result = job_result
         elif isinstance(job_result, str):
-            self._job_result = json.load(open(job_result, "r"))
+            with open(job_result) as f:
+                self._job_result = json.load(f)
         self._job_result["work_dir"] = os.path.dirname(sf_context)
-        logger.debug("Loaded job result: {}".format(json.dumps(self._job_result)))
+        logger.debug(f"Loaded job result: {json.dumps(self._job_result)}")
 
     def prepare_psuedo_context(self, psuedo_context):
         """
@@ -86,13 +83,11 @@ class PostProcessor(object):
                 self._pge_config.get("pge_name")
             )
         )
+        context_filename = f"{self._pge_config.get('pge_name')}_context.json"
         # write out job context
-        psu_context = open(
-            "{}_context.json".format(self._pge_config.get("pge_name")), "w"
-        )
-        psu_context.write(json.dumps(psuedo_context))
-        psu_context.close()
-        return "{}_context.json".format(self._pge_config.get("pge_name"))
+        with open(context_filename, "w") as f:
+            f.write(json.dumps(psuedo_context))
+        return context_filename
 
     def process(self):
         new_context = dict()
@@ -120,7 +115,5 @@ class PostProcessor(object):
             new_context_file = self.prepare_psuedo_context(new_context)
             return new_context_file
         except Exception as e:
-            logger.error(
-                "Post processor failure: {}. {}".format(e, traceback.format_exc())
-            )
-            raise RuntimeError("Post processor failure: {}".format(e))
+            logger.error(f"Post processor failure: {e}. {traceback.format_exc()}")
+            raise RuntimeError(f"Post processor failure: {e}")

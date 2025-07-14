@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import os
 import json
+import os
 import re
 import subprocess
 
@@ -100,9 +100,16 @@ def copy_sciflo_work(output_dir):
                 base_name = os.path.basename(path)
                 new_path = os.path.join(root, base_name)
                 try:
-                    subprocess.run(["cp", "-R", real_path, new_path], check=True, text=True, capture_output=True)
+                    subprocess.run(
+                        ["cp", "-R", real_path, new_path],
+                        check=True,
+                        text=True,
+                        capture_output=True,
+                    )
                 except subprocess.CalledProcessError as e:
-                    print(f"Error occurred during copy: return code = {e.returncode}\n{e.stderr}")  # captures stderr output
+                    print(
+                        f"Error occurred during copy: return code = {e.returncode}\n{e.stderr}"
+                    )  # captures stderr output
     return
 
 
@@ -137,7 +144,7 @@ def extract_error(sfl_json):
                         )
                         __write_error_files(err_str, job_json["traceback"])
             else:
-                err_str = "SciFlo step %s failed: %s" % (proc, exc)
+                err_str = f"SciFlo step {proc} failed: {exc}"
                 __write_error_files(err_str, tb)
 
 

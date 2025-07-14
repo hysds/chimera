@@ -11,7 +11,7 @@ GET_ICE_SCLK = "getIceSclk" # name of function
 """
 
 
-class ChimeraConstants(object):
+class ChimeraConstants:
     def __init__(self):
         pass
 

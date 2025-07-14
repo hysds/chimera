@@ -1,0 +1,18 @@
+{
+  "job_id": "test-job-123",
+  "job_type": "test_job",
+  "products": [
+    {
+      "id": "test-product-1",
+      "type": "test_data",
+      "path": "/tmp/test_product_1"
+    }
+  ],
+  "inputs": {
+    "input_file": "/tmp/test_input.dat"
+  },
+  "context": {
+    "workflow_id": "test-workflow-456",
+    "timestamp": "2023-01-01T00:00:00Z"
+  }
+}

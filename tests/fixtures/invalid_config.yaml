@@ -1,0 +1,5 @@
+# Invalid YAML for error testing
+invalid_yaml: [
+  - item1
+  - item2
+  missing_close_bracket

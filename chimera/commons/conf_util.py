@@ -1,15 +1,13 @@
-from __future__ import absolute_import
-from builtins import object
-import re
-import yaml
-import os
 import json
-
+import os
+import re
 from collections import OrderedDict
+
+import yaml
 
 # have yaml parse regular expressions
 yaml.SafeLoader.add_constructor(
-    u"tag:yaml.org,2002:python/regexp", lambda l, n: re.compile(l.construct_scalar(n))
+    "tag:yaml.org,2002:python/regexp", lambda l, n: re.compile(l.construct_scalar(n))
 )
 
 
@@ -19,7 +17,7 @@ class YamlConfEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, type(re.compile(r""))):
             return obj.pattern
-        return super(YamlConfEncoder, self).default(obj)
+        return super().default(obj)
 
 
 class YamlConfError(Exception):
@@ -28,7 +26,7 @@ class YamlConfError(Exception):
     pass
 
 
-class YamlConf(object):
+class YamlConf:
     """YAML configuration class."""
 
     def __init__(self, file):
@@ -56,7 +54,7 @@ class YamlConf(object):
         return json.dumps(self._cfg, cls=YamlConfEncoder, indent=2)
 
 
-class JobContext(object):
+class JobContext:
     """Job context class."""
 
     def __init__(self, file):
@@ -77,11 +75,7 @@ class JobContext(object):
         try:
             return self._ctx[key]
         except KeyError:
-            raise (
-                Exception(
-                    "Context '{}' doesn't exist in {}.".format(key, self._file)
-                )
-            )
+            raise (Exception(f"Context '{key}' doesn't exist in {self._file}."))
 
     def set(self, key, val):
         self._ctx[key] = val
@@ -91,8 +85,7 @@ class JobContext(object):
             json.dump(self._ctx, f, indent=2, sort_keys=True)
 
 
-
-class DockerParams(object):
+class DockerParams:
     """Job context class."""
 
     def __init__(self, file):
@@ -113,11 +106,7 @@ class DockerParams(object):
         try:
             return self._params[key]
         except KeyError:
-            raise (
-                Exception(
-                    "Docker params '{}' doesn't exist in {}.".format(key, self._file)
-                )
-            )
+            raise (Exception(f"Docker params '{key}' doesn't exist in {self._file}."))
 
 
 def load_config(config_filepath):
@@ -125,15 +114,15 @@ def load_config(config_filepath):
     config_ext = os.path.splitext(config_filepath)[1]
     if config_ext == ".json":
         try:
-            config = json.load(open(config_filepath, 'r'), object_pairs_hook=OrderedDict)
+            config = json.load(open(config_filepath), object_pairs_hook=OrderedDict)
         except Exception as e:
-            raise RuntimeError("Could not load Config : {}".format(e))
+            raise RuntimeError(f"Could not load Config : {e}")
     elif config_ext == ".yaml":
         try:
             config = YamlConf(config_filepath).cfg
         except Exception as e:
-            raise RuntimeError("Could not load Config : {}".format(e))
+            raise RuntimeError(f"Could not load Config : {e}")
     else:
-        raise RuntimeError("Config file must end in .yaml or .json: {}".format(config_filepath))
+        raise RuntimeError(f"Config file must end in .yaml or .json: {config_filepath}")
 
     return config

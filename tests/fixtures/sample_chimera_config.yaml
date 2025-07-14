@@ -1,0 +1,14 @@
+# Sample chimera configuration for testing
+preprocessor:
+  module_path: chimera.precondition_functions
+  class_name: PreConditionFunctions
+
+job_submitter:
+  module_path: chimera.pge_job_submitter
+  class_name: PgeJobSubmitter
+
+# Additional test configuration
+test_setting: test_value
+nested:
+  key1: value1
+  key2: value2

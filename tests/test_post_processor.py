@@ -1,8 +1,9 @@
 import json
 import os
+
 from smap_sciflo import post_processor
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
     This is for testing of Production PGE Post Processing
     Comment out from hysds.celery import app in post_processor and query_util
@@ -30,13 +31,21 @@ if __name__ == '__main__':
 
     # Testing L0B post processing
     os.path.dirname(os.path.realpath(__file__))
-    job_result = json.loads(open(os.path.dirname(os.path.realpath(
-        __file__))+"/test-files/sample_job_submission_result.json").read())
-    sf_context = os.path.dirname(os.path.realpath(
-        __file__))+"/test-files/sf_context.json"
+    test_files_dir = os.path.join(
+        os.path.dirname(os.path.realpath(__file__)), "test-files"
+    )
+    with open(os.path.join(test_files_dir, "sample_job_submission_result.json")) as f:
+        job_result = json.load(f)
+    sf_context = os.path.join(test_files_dir, "sf_context.json")
     pge_type = "L0A_Radiometer"
     level_up_dir = os.path.dirname(os.path.realpath(__file__))
-    pge_config_file = os.path.abspath(os.path.join(os.path.realpath(
-        __file__), "../..", "configs/examples/PGE_L0A_RADIOMETER.json"))
+    pge_config_file = os.path.abspath(
+        os.path.join(
+            os.path.realpath(__file__),
+            "../..",
+            "configs/examples/PGE_L0A_RADIOMETER.json",
+        )
+    )
     post_processor.create_context(
-        sf_context, job_result, pge_type, pge_config_file, test_mode=True)
+        sf_context, job_result, pge_type, pge_config_file, test_mode=True
+    )

@@ -1,0 +1,20 @@
+{
+  "runconfig": {
+    "DebugGroup": {
+      "CaptureLogMessagesSwitch": "On",
+      "DebugPath": "/tmp/test_output",
+      "EchoToScreenSwitch": "Off",
+      "DebugSwitch": "Off"
+    },
+    "ProductPathGroup": {
+      "ShortName": "Test_Product",
+      "ProductPath": "/tmp/test_output",
+      "ProductCounter": "001"
+    }
+  },
+  "preconditions": [
+    "getProducts"
+  ],
+  "pge_name": "Test_PGE",
+  "output_file_extension": [".test"]
+}
