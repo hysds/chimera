@@ -181,7 +181,7 @@ class PostProcessFunctions:
                 products_staged = orig_job_info["_source"]["job"]["job_info"][
                     "metrics"
                 ]["products_staged"]
-                prev_context = orig_job_info["_source"]["context"]
+                prev_context = orig_job_info["_source"]["job"]["context"]
                 logger.info("Queried ES to get Job context and staged files info")
                 message = "success"
         elif status == "job-completed":
@@ -189,7 +189,7 @@ class PostProcessFunctions:
             products_staged = result["_source"]["job"]["job_info"]["metrics"][
                 "products_staged"
             ]
-            prev_context = result["_source"]["context"]
+            prev_context = result["_source"]["job"]["context"]
             logger.info("Queried ES to get Job context and staged files info")
             message = "success"
             return_job_id = job_id
