@@ -4,7 +4,7 @@ adaptation_path = "folder/"
 
 setup(
     name='chimera',
-    version='2.3.0',
+    version='3.0.0',
     python_requires=">=3.12",
     packages=find_packages(),
     install_requires=[
