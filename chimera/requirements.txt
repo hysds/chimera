@@ -1,5 +1,5 @@
 hysds_commons==0.1
-setuptools==38.2.5
+setuptools==65.5.1
 requests==2.20.0
 celery==5.2.2
 elasticsearch==6.2.0
