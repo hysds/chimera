@@ -1,16 +1,12 @@
-from setuptools import setup, find_packages
+# Minimal setup.py shim for backward compatibility
+# This delegates to pyproject.toml for all configuration
+# This file will be removed in a future release (v7.1.0+)
+#
+# Modern installation (recommended):
+#   pip install .
+#   pip install -e .
+#
+# This shim ensures existing scripts that expect setup.py continue to work
+from setuptools import setup
 
-adaptation_path = "folder/"
-
-setup(
-    name='chimera',
-    version='3.0.0',
-    python_requires=">=3.12",
-    packages=find_packages(),
-    install_requires=[
-        'elasticsearch>=7.0.0,<7.14.0',
-        'elasticsearch-dsl>=7.0.0,<=7.4.0',
-        'requests>=2.18.4',
-        'simplejson>=3.11.1'
-    ]
-)
+setup()

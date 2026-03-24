@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hysds-chimera"
+dynamic = ["version"]
+description = "HySDS Chimera adaptation framework"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.12"
+authors = [
+    {name = "HySDS", email = "hysds-help@jpl.nasa.gov"}
+]
+keywords = ["hysds", "chimera", "adaptation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    # HySDS sibling packages (undeclared in original setup.py - now added)
+    "hysds-core~=7.0",
+    "hysds-commons~=7.0",
+    "hysds-sciflo~=7.0",
+    
+    # Core dependencies - matching original setup.py order and pins exactly
+    "elasticsearch>=7.0.0,<7.14.0",
+    "elasticsearch-dsl>=7.0.0,<=7.4.0",
+    "requests>=2.18.4",
+    "simplejson>=3.11.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/hysds/hysds-chimera"
+Repository = "https://github.com/hysds/hysds-chimera"
+Issues = "https://github.com/hysds/hysds-chimera/issues"
+
+[tool.hatch.version]
+source = "vcs"
+raw-options = {version_scheme = "no-guess-dev"}
+
+[tool.hatch.build.targets.wheel]
+packages = ["chimera"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/chimera",
+    "README.md",
+    "LICENSE",
+]
